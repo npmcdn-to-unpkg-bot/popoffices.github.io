@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title></title>
+		<style>
+			@font-face {
+				font-family: 'SourceHans';
+				src: url("https://raw.githubusercontent.com/adobe-fonts/source-han-sans/release/SubsetOTF/CN/SourceHanSansCN-Regular.otf") format("opentype");
+			}
+			
+			* {
+				box-sizing: border-box;
+			}
+			
+			html,
+			body {
+				width: 90%;
+				margin-left: 5%;
+				padding: 0;
+				color: #fff;
+				font-size: 14px;
+				background-color: #fafafa;
+				font-family: 'SourceHans';
+			}
+			
+			.hide {
+				display: none;
+				/* Opera */
+			}
+			
+			.flex-container {
+				display: -webkit-flex;
+				display: -ms-flexbox;
+				display: flex;
+				width: 100%;
+				-webkit-flex-direction: row;
+				-ms-flex-direction: row;
+				flex-direction: row;
+			}
+			
+			.flex-container div {
+				margin: 0;
+				display: block;
+				width: 20%;
+				-webkit-align-items: center;
+				-ms-flex-align: center;
+				align-items: center;
+				text-align: center;
+				cursor: pointer;
+			}
+			
+			.flex-container li,
+			.flex-container a {
+				margin: 0;
+				display: none;
+				width: 20%;
+				-webkit-align-items: center;
+				-ms-flex-align: center;
+				align-items: center;
+				text-align: center;
+				cursor: pointer;
+			}
+			
+			.align-items-center {
+				display: -webkit-flex;
+				display: -ms-flexbox;
+				display: flex;
+				padding-top: 10px;
+				width: 100%;
+				-webkit-flex-direction: row;
+				-ms-flex-direction: row;
+				flex-direction: row;
+				-webkit-align-items: center;
+				-ms-flex-align: center;
+				align-items: center;
+			}
+			
+			.item {
+				margin: 0;
+				display: block;
+				-webkit-align-items: center;
+				-ms-flex-align: center;
+				align-items: center;
+			}
+			
+			#item1 {
+				flex: 0 0 60%;
+				background-color: #424242;
+				text-align: center;
+			}
+			
+			#item2 {
+				flex: 0 0 40%;
+				background-color: rgb(213, 84, 1);
+				text-align: center;
+			}
+			/* Slideshow container */
+			
+			.slideshow-container {
+				position: relative;
+			}
+			/* Next & previous buttons */
+			
+			.prev,
+			.next {
+				cursor: pointer;
+				position: absolute;
+				top: 0;
+				top: 50%;
+				width: auto;
+				margin-top: -22px;
+				padding: 16px;
+				color: white;
+				font-weight: bold;
+				font-size: 18px;
+				transition: 0.6s ease;
+				border-radius: 0 3px 3px 0;
+			}
+			/* Position the "next button" to the right */
+			
+			.prev {
+				left: 0;
+				border-radius: 3px 0 0 3px;
+			}
+			
+			.next {
+				right: 0;
+				border-radius: 3px 0 0 3px;
+			}
+			/* On hover, add a black background color with a little bit see-through */
+			
+			.prev:hover,
+			.next:hover {
+				background-color: rgba(0, 0, 0, 0.8);
+			}
+			/* Caption text */
+			
+			.text {
+				color: #f2f2f2;
+				font-size: 15px;
+				padding: 5px 12px;
+				position: absolute;
+				bottom: 8px;
+				width: 100%;
+				text-align: center;
+				background-color: rgba(66, 66, 66, 0.6);
+			}
+			/* Number text (1/3 etc) */
+			
+			.numbertext {
+				color: #f2f2f2;
+				font-size: 12px;
+				padding: 8px 12px;
+				position: absolute;
+				background-color: rgba(66, 66, 66, 0.6);
+				top: 0;
+			}
+			/* The dots/bullets/indicators */
+			
+			.dot {
+				margin: 0 2px;
+				cursor: pointer;
+				height: 13px;
+				width: 13px;
+				background-color: #616161;
+				border-radius: 50%;
+				display: inline-block;
+				transition: background-color 0.6s ease;
+			}
+			
+			.active,
+			.dot:hover {
+				background-color: #fafafa;
+			}
+			/* Fading animation */
+			
+			.fade {
+				-webkit-animation-name: fade;
+				-webkit-animation-duration: 1.5s;
+				animation-name: fade;
+				animation-duration: 1.5s;
+			}
+			
+			@-webkit-keyframes fade {
+				from {
+					opacity: .4
+				}
+				to {
+					opacity: 1
+				}
+			}
+			
+			@keyframes fade {
+				from {
+					opacity: .4
+				}
+				to {
+					opacity: 1
+				}
+			}
+			
+			.hr-text {
+				margin-top: -30px;
+				position: relative;
+				outline: 0;
+				border: 0;
+				color: black;
+				text-align: center;
+				height: 1.5em;
+				opacity: .5;
+			}
+			
+			.hr-text:before {
+				content: '';
+				background: -webkit-linear-gradient(left, transparent, #818078, transparent);
+				background: linear-gradient(to right, transparent, #818078, transparent);
+				position: absolute;
+				left: 0;
+				top: 50%;
+				width: 100%;
+				height: 1px;
+			}
+			
+			.hr-text:after {
+				content: attr(data-content);
+				position: relative;
+				display: inline-block;
+				color: black;
+				padding: 0 .5em;
+				line-height: 1.5em;
+				color: #818078;
+				background-color: #fcfcfa;
+			}
+			
+			section ul {
+				list-style: none;
+				text-align: center;
+			}
+			
+			section ul li {
+				font-size: 12px;
+				width: 12%;
+				display: inline-block;
+			}
+			
+			section a {
+				color: #424242;
+				text-decoration: none;
+			}
+			
+			section {
+				padding-bottom: 30px;
+			}
+			
+			section p {
+				margin-bottom: -10px;
+			}
+			
+			section h1 {
+				color: #424242;
+				display: inline-block;
+			}
+			
+			section h3 {
+				color: #E91E63;
+				display: inline-block;
+			}
+			
+			section div,
+			section div::before,
+			section div::after,
+			section img,
+			section span {
+				-webkit-transition: all 0.2s;
+				transition: all 0.2s;
+			}
+			
+			section img {
+				width: 100%;
+				height: 100%;
+				display: block;
+			}
+			
+			section div {
+				width: 32.9%;
+				margin: 0 1px 1px 0;
+				float: left;
+				position: relative;
+				overflow: hidden;
+			}
+			
+			section div:hover img {
+				-webkit-transform: scale(1.25);
+				transform: scale(1.25);
+			}
+			
+			section div:hover span {
+				opacity: 1;
+			}
+			
+			section div::before {
+				content: "";
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				z-index: 1;
+			}
+			
+			section div:hover::before {
+				-webkit-backdrop-filter: blur(10px) saturate(120%);
+				backdrop-filter: blur(10px) saturate(120%);
+			}
+			
+			section div::after {
+				content: "";
+				border: 1px solid #fff;
+				border-radius: 50%;
+				box-shadow: 0 0px 4px rgba(0, 0, 0, 0.35), 0 0px 4px rgba(0, 0, 0, 0.35) inset;
+				height: 75px;
+				width: 75px;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				z-index: 2;
+				-webkit-transform: translate(-50%, -50%);
+				transform: translate(-50%, -50%);
+				opacity: 0;
+			}
+			
+			section div:hover::after {
+				opacity: 1;
+			}
+			
+			section span {
+				color: #fff;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				z-index: 3;
+				-webkit-transform: translate(-50%, -50%);
+				transform: translate(-50%, -50%);
+				opacity: 0;
+				text-align: center;
+				text-transform: uppercase;
+				text-shadow: 0 0 4px rgba(0, 0, 0, 0.65);
+			}
+			
+			#pc {
+				display: none;
+			}
+			
+			footer {
+				background: #424242;
+				bottom: 0;
+				width: 100%;
+				height: 100px;
+			}
+			
+			.header {
+				z-index: 9999;
+				top: 0;
+				bottom: 0;
+				left:0;
+				right:0;
+				position: fixed;
+				width: 100%;
+				height: 100%;
+				background-color: #FFFFFF;
+				display: block;
+				text-align: center;
+			}
+			
+			.loader {
+				margin-top: 30%;
+				margin-left:auto;
+				margin-right:auto;
+				border: 16px solid #FFFFFF;
+				/* Light grey */
+				border-top: 16px solid #E91E63;
+				border-bottom: 16px solid #424242;
+				/* Blue */
+				border-radius: 50%;
+				width: 120px;
+				height: 120px;
+				animation: spin 2s linear infinite;
+				-webkit-animation: spin 2s linear infinite;
+			
+			}
+			.header p {
+				color:#424242;
+			}
+			@keyframes spin {
+				0% {
+					transform: rotate(0deg);
+				}
+				100% {
+					transform: rotate(360deg);
+				}
+			}
+			@-webkit-keyframes spin {
+				0% {
+					transform: rotate(0deg);
+				}
+				100% {
+					transform: rotate(360deg);
+				}
+			}
+			
+			@media screen and (min-width: 760px) {
+				section div {
+					width: calc(20% - 1px);
+				}
+				#pc {
+					display: block;
+				}
+			}
+			
+			@media only screen and (max-width:760px) {
+				.flex-container div {
+					width: 100%;
+					display: none;
+				}
+				.flex-container.column div {
+					display: block;
+					width: 100%;
+					box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+				}
+				.flex-container li,
+				.flex-container a {
+					display: block;
+					width: 100%;
+					text-align: center
+				}
+				.flex-container.column a {
+					display: none;
+				}
+				.flex-container.column li {
+					width: 100%;
+					display: block;
+				}
+				.flex-container.column {
+					-webkit-flex-direction: column;
+					-ms-flex-direction: column;
+					flex-direction: column;
+					width: 100%;
+				}
+				#item2 {
+					display: none;
+				}
+				#item1 {
+					flex: 0 0 100%;
+					background-color: #424242;
+				}
+				.flex-container li:hover .flex-container {
+					display: block;
+					margin: 0 0 5px;
+				}
+				section ul li {
+					font-size: 12px;
+					width: 25%;
+					display: inline-block;
+				}
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="header" id="aside">
+			<div class="loader"></div>
+			<br>
+			<p>LOADING</p>
+		</header>
+		<nav>
+			<div class="flex-container" id="direction">
+				<li style="background-color: #ec407a;" onclick="mu()">
+					<p id="x">=</p>
+				</li>
+				<a id="m1" style="background-color: #e91e63;">
+					<p>POPOFFICES</p>
+				</a>
+				<a id="m2" style="background-color: #d81b60;">
+					<p>i</p>
+				</a>
+				<div id="q" style="background-color: #e91e63;">
+					<p>首页</p>
+				</div>
+				<div style="background-color: #d81b60;">
+					<p>案例</p>
+				</div>
+				<div style="background-color: #c2185b;">
+					<p>图库</p>
+				</div>
+				<div style="background-color: #ad1457;">
+					<p>建材</p>
+				</div>
+				<div style="background-color: #880e4f;">
+					<p>家具</p>
+				</div>
+			</div>
+		</nav>
+		<article>
+			<div class="align-items-center">
+
+				<div class="item" id="item1">
+					<div class="slideshow-container">
+						<div class="mySlides fade">
+							<div class="numbertext">1 / 5</div>
+							<img src="http://www.popoffices.com/design/app/005/1590/index2.jpg" style="width:100%">
+							<div class="text">动感曲线 Dow化学公司墨西哥办公设计欣赏</div>
+						</div>
+
+						<div class="mySlides fade">
+							<div class="numbertext">2 / 5</div>
+							<img src="http://www.popoffices.com/design/app/005/1578/index2.jpg" style="width:100%">
+							<div class="text">重装上阵 Varonis纽约总部一期办公设计欣赏</div>
+						</div>
+
+						<div class="mySlides fade">
+							<div class="numbertext">3 / 5</div>
+							<img src="http://www.popoffices.com/design/app/005/1589/index2.jpg" style="width:100%">
+							<div class="text">黑白秩序下的极简主义 上海因途Intoo办公设计欣赏</div>
+						</div>
+
+						<div class="mySlides fade">
+							<div class="numbertext">4 / 5</div>
+							<img src="http://www.popoffices.com/design/app/005/1592/index2.jpg" style="width:100%">
+							<div class="text">刘恺+RIGI 睿集设计办公空间欣赏</div>
+						</div>
+
+						<div class="mySlides fade">
+							<div class="numbertext">5 / 5</div>
+							<img src="http://www.popoffices.com/design/app/005/1580/index2.jpg" style="width:100%">
+							<div class="text">上班就这么任性 Social Tables华盛顿总部设计欣赏</div>
+						</div>
+
+						<a class="prev" onclick="plusSlides(-1)">
+							《</a>
+						<a class="next" onclick="plusSlides(1)">》</a>
+					</div>
+					<br>
+
+					<div style="text-align:center;margin-top:-18px">
+						<span class="dot" onclick="currentSlide(1)"></span>
+						<span class="dot" onclick="currentSlide(2)"></span>
+						<span class="dot" onclick="currentSlide(3)"></span>
+						<span class="dot" onclick="currentSlide(4)"></span>
+						<span class="dot" onclick="currentSlide(5)"></span>
+					</div>
+				</div>
+				<div class="item" id="item2">
+					<p>2</p>
+				</div>
+			</div>
+		</article>
+		<section>
+			<p>
+				<h1><b>&nbsp;案例精选</b></h1>&nbsp;
+				<h3><b>OFFICES</b></h3>&nbsp;
+				<h1 style="float:right;"><b>▼</b></h1></p>
+			<hr class="hr-text" data-content="OFFICES">
+			<div><img src="http://www.popoffices.com/design/app/005/1585/1585.jpg"><span>了解详情</span></div>
+			<div><img src="http://www.popoffices.com/design/app/005/1586/1586.jpg"><span>了解详情</span></div>
+			<div><img src="http://www.popoffices.com/design/app/005/1587/1587.jpg"><span>了解详情</span></div>
+			<div><img src="http://www.popoffices.com/design/app/005/1588/1588.jpg"><span>了解详情</span></div>
+			<div><img src="http://www.popoffices.com/design/app/005/1589/1589.jpg"><span>了解详情</span></div>
+			<div><img src="http://www.popoffices.com/design/app/005/1590/1590.jpg"><span>了解详情</span></div>
+			<div><img src="http://www.popoffices.com/design/app/005/1591/1591.jpg"><span>了解详情</span></div>
+			<div><img src="http://www.popoffices.com/design/app/005/1592/1592.jpg"><span>了解详情</span></div>
+			<div><img src="http://fakeimg.pl/400x400/424242/ffffff/?text=More&font=bebas"><span></span></div>
+			<div id="pc"><img src="http://fakeimg.pl/400x400/424242/ffffff/?text=OFFICES&font=bebas"><span></span></div>
+		</section>
+		<section>
+			<p>
+				<h1><b>&nbsp;友情链接</b></h1>&nbsp;
+				<h3><b>PARTNER</b></h3>&nbsp;
+				<h1 style="float:right;"><b>▼</b></h1></p>
+			<hr class="hr-text" data-content="PARTNER">
+			<ul>
+				<li>
+					<a href="http://www.fortunechina.com/" target="_blank">《财富》</a>
+				</li>
+				<li>
+					<a href="http://www.ceconline.com" target="_blank">《世界经理人》</a>
+				</li>
+				<li>
+					<a href="http://shanghai.chineseoffice.com.cn/" target="_blank">中国写字楼网</a>
+				</li>
+				<li>
+					<a href="http://www.garnet.com.cn/" target="_blank">简诺空间设计</a>
+				</li>
+				<li>
+					<a href="http://www.visionunion.com" target="_blank">视觉同盟</a>
+				</li>
+				<li>
+					<a href="http://www.ciid.com.cn/" target="_blank">中国室内网</a>
+				</li>
+				<li>
+					<a href="http://www.ideamsg.com/" target="_blank">灵感日报</a>
+				</li>
+				<li>
+					<a href="http://www.far2000.com/" target="_blank">自由建筑报道</a>
+				</li>
+				<li>
+					<a href="http://www.id-china.com.cn/" target="_blank">《室内设计》中文网</a>
+				</li>
+				<li>
+					<a href="http://www.Vartcn.com/" target="_blank">艺术中国网</a>
+				</li>
+				<li>
+					<a href="http://www.chinavisual.com/" target="_blank">视觉中国网</a>
+				</li>
+				<li>
+					<a href="http://www.arting365.com/" target="_blank">中国艺术设计联盟</a>
+				</li>
+				<li>
+					<a href="http://dolcn.com/" target="_blank">设计在线</a>
+				</li>
+				<li>
+					<a href="http://www.ionly.com.cn/" target="_blank">东方视觉</a>
+				</li>
+				<li>
+					<a href="http://www.china-designer.com/" target="_blank">建筑与室内设计师网</a>
+				</li>
+				<li>
+					<a href="http://www.archi123.com/" target="_blank">知筑网</a>
+				</li>
+			</ul>
+		</section>
+		<footer>
+			<p></p>
+		</footer>
+	</body>
+	<script>
+		function mu() {
+			var x = document.getElementById("x")
+			var mu = document.getElementById("direction");
+			if(mu.className === "flex-container") {
+				mu.className += " column";
+				x.innerHTML = "X";
+
+			} else {
+				mu.className = "flex-container";
+				x.innerHTML = "=";
+			}
+		}
+
+		function plusSlides(n) {
+			showSlides(slideIndex += n);
+		}
+
+		function currentSlide(n) {
+			showSlides(slideIndex = n);
+		}
+		var slideIndex = 1;
+		var t
+		var m = 0;
+		var ps = document.getElementById("ps");
+		showSlides(slideIndex);
+		autoSlides();
+
+		function autoSlides() {
+			slideIndex++;
+			t = setTimeout(autoSlides, 4000);
+			showSlides(slideIndex);
+		}
+
+		function ifauto() {
+			if(ps.innerHTML = "||") {
+				autoSlides();
+				ps.innerHTML = "||"
+			} else {
+				stopSlides()
+				ps.innerHTML = ">";
+			}
+		}
+
+		function stopSlides() {
+			clearTimeout(t)
+		}
+
+		function showSlides(n) {
+			var i;
+			var slides = document.getElementsByClassName("mySlides");
+			var dots = document.getElementsByClassName("dot");
+			if(n > slides.length) {
+				slideIndex = 1
+			}
+			if(n < 1) {
+				slideIndex = slides.length
+			}
+			for(i = 0; i < slides.length; i++) {
+				slides[i].style.display = "none";
+			}
+			for(i = 0; i < dots.length; i++) {
+				dots[i].className = dots[i].className.replace(" active", "");
+			}
+			slides[slideIndex - 1].style.display = "block";
+			dots[slideIndex - 1].className += " active";
+		}
+		window.onload = function() {
+
+			var loader = document.getElementById("aside");
+			loader.className = "hide";
+		}
+	</script>
+
+</html>
