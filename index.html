@@ -26,6 +26,10 @@
             font-family: Helvetica, "Microsoft YaHei", "Hiragino Sans GB", "Noto Sans SC Regular";
         }
         
+        h1 {
+            color: #424242;
+        }
+        
         .hide {
             display: none;
         }
@@ -198,173 +202,22 @@
             background-color: #fafafa;
         }
         
-        .hr-text {
-            margin-top: -30px;
-            position: relative;
-            outline: 0;
-            border: 0;
-            color: #000;
-            text-align: center;
-            height: 1.5em;
-            opacity: .5;
-        }
-        
-        .hr-text:before {
-            content: '';
-            background: -webkit-linear-gradient(left, transparent, #818078, transparent);
-            background: linear-gradient(to right, transparent, #818078, transparent);
-            position: absolute;
-            left: 0;
-            top: 50%;
-            width: 100%;
-            height: 1px;
-        }
-        
-        .hr-text:after {
-            content: attr(data-content);
-            position: relative;
-            display: inline-block;
-            color: #000;
-            padding-top: 0;
-            padding-bottom: 0;
-            padding-left: .5em;
-            padding-right: .5em;
-            line-height: 1.5em;
-            color: #818078;
-            background-color: #fcfcfa;
-        }
-        
-        .partner,
-        .section {
-            padding-bottom: 30px;
-        }
-        
-        .partner p,
-        .section p {
-            margin-bottom: -10px;
-        }
-        
-        .partner h1,
-        .section h1 {
-            color: #424242;
-            display: inline-block;
-        }
-        
-        .partner h3,
-        .section h3 {
-            color: #E91E63;
-            display: inline-block;
-        }
-        
-        .section div,
-        .section div::before,
-        .section div::after,
-        .section img,
-        .section span {
-            -webkit-transition: all .2s;
-            transition: all .2s;
-        }
-        
-        .partner a {
-            width: 160;
-            height: 90;
-            text-align: center;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .partner a {
-            color: #424242;
-            font-size: 9px;
-        }
-        
-        .section img {
-            width: 100%;
-            height: 100%;
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            transition: 0.3s;
+            width: calc(100% / 3 - 40px);
+            margin: 20px;
+            float: left;
             display: block;
         }
         
-        .section div {
-            width: 32.9%;
-            margin-top: 0;
-            margin-left: 0px;
-            margin-right: 1px;
-            margin-bottom: 1px;
-            float: left;
-            position: relative;
-            overflow: hidden;
+        .card:hover {
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
         }
         
-        .partner div {
-            width: 24%;
-            margin: 0 1px 1px 0;
-            float: left;
-            position: relative;
-            overflow: hidden;
-            text-align: center;
-        }
-        
-        .section div:hover img {
-            -webkit-transform: scale(1.25);
-            -ms-transform: scale(1.25);
-            transform: scale(1.25)
-        }
-        
-        .section div:hover span {
-            opacity: 1;
-            background-color: rgba(42, 42, 42, .8)
-        }
-        
-        .section div::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            z-index: 1;
-        }
-        
-        .section div:hover::before {
-            -webkit-backdrop-filter: blur(10px) saturate(120%);
-            backdrop-filter: blur(10px) saturate(120%)
-        }
-        
-        .section div::after {
-            content: "";
-            height: 75px;
-            width: 75px;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            z-index: 2;
-            -webkit-transform: translate(-50%, -50%);
-            -ms-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
-            opacity: 0;
-        }
-        
-        .section div:hover::after {
-            opacity: 1;
-        }
-        
-        .section span {
-            padding-top: 50%;
-            padding-bottom: 50%;
-            width: 100%;
-            height: auto;
-            color: #fff;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            z-index: 3;
-            -webkit-transform: translate(-50%, -50%);
-            -ms-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
-            opacity: 0;
-            text-align: center;
-            text-transform: uppercase;
-            text-shadow: 0 0 4px rgba(0, 0, 0, .65);
+        .container {
+            color: #424242;
+            padding: 2px 16px;
         }
         
         #pc {
@@ -372,10 +225,10 @@
         }
         
         footer {
-            margin-top: 100px;
             background: #424242;
             width: 100%;
             height: 100px;
+            margin-top: 1000px;
         }
         
         footer div {
@@ -490,19 +343,8 @@
             .loader {
                 margin-top: 20%;
             }
-            .section div {
-                width: -webkit-calc(20% - 1px);
-                width: calc(20% - 1px);
-            }
-            .partner div {
-                width: -webkit-calc(12.5% - 1px);
-                width: calc(12.5% - 1px);
-            }
             #pc {
                 display: block;
-            }
-            .partner a {
-                font-size: 12px;
             }
         }
         
@@ -517,13 +359,6 @@
             }
             #feetm {
                 width: 100%;
-            }
-            .section span {
-                padding-top: 10%;
-                padding-bottom: 10%;
-                opacity: 1;
-                background-color: rgba(42, 42, 42, .8);
-                top: 90%;
             }
             footer [id*=faat] {
                 display: none;
@@ -611,10 +446,7 @@
                 <p id="x">=</p>
             </a>
             <li id="mu1" style="background-color:#e91e63">
-                <p>POP</p>
-            </li>
-            <li id="mu1" style="background-color:#e91e63">
-                <p>OFFICES</p>
+                <p>POPOFFICES</p>
             </li>
             <a id="mu2" style="background-color:#d81b60">
                 <p>i</p>
@@ -636,7 +468,7 @@
             </div>
         </div>
     </nav>
-    <article>
+    <section>
         <div class="align-items-center">
             <div class="item" id="item1">
                 <div class="slideshow-container">
@@ -665,60 +497,46 @@
             </div>
             <div class="item" id="item2"><img width="70%" src="https://github.com/popoffices/popoffices.github.io/raw/master/code.png"></div>
         </div>
+    </section>
+    <article>
+        <h1>案例精选</h1>
+        <div class="card"> <img src="http://www.popoffices.com/design/app/005/1592/index3.jpg" alt="Avatar" style="width:100%">
+            <div class="container">
+                <h4><b>John Doe</b></h4>
+                <p>Architect & Engineer</p>
+            </div>
+        </div>
+        <div class="card"> <img src="http://www.popoffices.com/design/app/005/1593/index3.jpg" alt="Avatar" style="width:100%">
+            <div class="container">
+                <h4><b>John Doe</b></h4>
+                <p>Architect & Engineer</p>
+            </div>
+        </div>
+        <div class="card"> <img src="http://www.popoffices.com/design/app/005/1594/index3.jpg" alt="Avatar" style="width:100%">
+            <div class="container">
+                <h4><b>John Doe</b></h4>
+                <p>Architect & Engineer</p>
+            </div>
+        </div>
+        <div class="card"> <img src="http://www.popoffices.com/design/app/005/1594/index3.jpg" alt="Avatar" style="width:100%">
+            <div class="container">
+                <h4><b>John Doe</b></h4>
+                <p>Architect & Engineer</p>
+            </div>
+        </div>
+        <div class="card"> <img src="http://www.popoffices.com/design/app/005/1594/index3.jpg" alt="Avatar" style="width:100%">
+            <div class="container">
+                <h4><b>John Doe</b></h4>
+                <p>Architect & Engineer</p>
+            </div>
+        </div>
+        <div class="card"> <img src="http://www.popoffices.com/design/app/005/1594/index3.jpg" alt="Avatar" style="width:100%">
+            <div class="container">
+                <h4><b>John Doe</b></h4>
+                <p>Architect & Engineer</p>
+            </div>
+        </div>
     </article>
-    <section class="section">
-        <p>
-            <h1>&nbsp;案例精选</h1>
-            <h3><b>OFFICES</b></h3>
-            <h1 style="float:right"><b>▼&nbsp;</b></h1></p>
-        <hr class="hr-text" data-content="OFFICES">
-        <div><img src="http://www.popoffices.com/design/app/005/1585/1585.jpg"><span>Wildcraft</span></div>
-        <div><img src="http://www.popoffices.com/design/app/005/1586/1586.jpg"><span>John Brown</span></div>
-        <div><img src="http://www.popoffices.com/design/app/005/1587/1587.jpg"><span>Putao</span></div>
-        <div><img src="http://www.popoffices.com/design/app/005/1588/1588.jpg"><span>Red Bull</span></div>
-        <div><img src="http://www.popoffices.com/design/app/005/1589/1589.jpg"><span>Intoo</span></div>
-        <div><img src="http://www.popoffices.com/design/app/005/1590/1590.jpg"><span>DOW</span></div>
-        <div><img src="http://www.popoffices.com/design/app/005/1591/1591.jpg"><span>Harris HMC</span></div>
-        <div><img src="http://www.popoffices.com/design/app/005/1592/1592.jpg"><span>LK+RIGI</span></div>
-        <div><img src="http://fakeimg.pl/400x400/424242/ffffff/?text=More&font=bebas"><span id="mb">OFFICES</span></div>
-        <div id="pc"><img src="http://fakeimg.pl/400x400/424242/ffffff/?text=OFFICES&font=bebas"></div>
-    </section>
-    <section class="partner">
-        <p>
-            <h1><b>&nbsp;友情链接</b></h1>
-            <h3><b>PARTNER</b></h3>
-            <h1 style="float:right"><b>▼&nbsp;</b></h1></p>
-        <hr class="hr-text" data-content="PARTNER">
-        <div> <a href="http://www.fortunechina.com/" target="_blank">《财富》</a> </div>
-        <div> <a href="http://www.ceconline.com" target="_blank">《世界经理人》</a> </div>
-        <div> <a href="http://shanghai.chineseoffice.com.cn/" target="_blank">中国写字楼网</a> </div>
-        <div> <a href="http://www.garnet.com.cn/" target="_blank">简诺空间设计</a> </div>
-        <div> <a href="http://www.visionunion.com" target="_blank">视觉同盟</a> </div>
-        <div> <a href="http://www.ciid.com.cn/" target="_blank">中国室内网</a> </div>
-        <div> <a href="http://www.ideamsg.com/" target="_blank">灵感日报</a> </div>
-        <div> <a href="http://www.far2000.com/" target="_blank">自由建筑报道</a> </div>
-        <div> <a href="http://www.id-china.com.cn/" target="_blank">《室内设计》中文</a> </div>
-        <div> <a href="http://www.Vartcn.com/" target="_blank">艺术中国网</a> </div>
-        <div> <a href="http://www.chinavisual.com/" target="_blank">视觉中国网</a> </div>
-        <div> <a href="http://www.arting365.com/" target="_blank">中国艺术设计联盟</a> </div>
-        <div> <a href="http://dolcn.com/" target="_blank">设计在线</a> </div>
-        <div> <a href="http://www.ionly.com.cn/" target="_blank">东方视觉</a> </div>
-        <div> <a href="http://www.china-designer.com/" target="_blank">建筑与室内设计师</a> </div>
-        <div> <a href="http://www.archi123.com/" target="_blank">知筑网</a> </div>
-        <div> <a href="http://www.interiordesign.net" target="_blank">interiordesign</a> </div>
-        <div> <a href="http://www.uapid.com/" target="_blank">设计联</a> </div>
-        <div> <a href="http://www.xiufun.com" target="_blank">修房网</a> </div>
-        <div> <a href="http://www.shanghai-da.com" target="_blank">上海创意设计工作者协会</a> </div>
-        <div> <a href="http://www.zcool.com.cn/" target="_blank">站酷ZCOOL</a> </div>
-        <div> <a href="http://www.51room.net" target="_blank">51房产网</a> </div>
-        <div> <a href="http://www.spider.com.cn" target="_blank">蜘蛛网</a> </div>
-        <div> <a href="http://www.haoyin.com" target="_blank">好印网</a> </div>
-        <br> </section>
-    <br>
-    <section id="ad" class="partner">
-        <br>
-        <a href="http://pos.baidu.com/cclick.php?000000aLe7J1mHAetBMLeaLS4vvrjaNCPQhj8yAY0fuIKwsAoPwrugSezskKiMHcoshk2LeThqdbWim9w0_qPgM_sBkmyEugI5VXC-HgOkXEs3FSNIXUyQyRahYq.DR_auroKZzfTnXBra2ZHZKj7MJem2QnN1tYDpyuCpE5nSFnZ3neVXVt2TtzpjnvGPKSU5k-l7BmtI-hOxuELt_rrumuCyr1_3eqz60.mhwGujY0mLKGujYsn1wKf1wDn1f4fb7KnYR3PjD1PDPaPWc3njf3wDf3r0K3pg0qnH08nW03QWDzPz3YP0KLu7tkIZF9uARqrfKLu7tzIZF9uARqrH0k0AwEUy7GU-qhpgF1I7qYTh7buHYkP0KbUvd9py4xTvNWUv4bgLwzmyw-5HDYnjc0TAtqn6Ksm1Y3n100mv9VujYk0ZPWpAdb5H00TL0qnfK9uZfqnfKvpyw-UdqWpA78UhN_5H00IgP-T-qYXgK-5HD0TvNzIh-8udqYXgK-5H00ugfqn0KVm1Ys0A7bmvk9TLnqn0KYIHddnH6snWRvn6KYUHYkPjR1rHf30Zwb5HD3njcdPWc0IA7z5HD0TLPs5HD0IZws5HD0mvqVTAk-5H00ULnqn0KBTWYkn6K9uvRqn0KWIA_q0AwYTjYk0ZNzUjdCIZwsrBtETAqsUvuhpyP-Tz4WUvYE0ZIGuZwC5HTzr0KCuy-MpZfqrH00myw3gvFGu7qWTAYqnW0sn0KWpjYs0A7duA--UhP-gLwzmyw-5Hf3PsKMuy4bugFxpyfqn1Tv0Ad9TMFGmyI-gv-b5HnLPsK1IA7YpyPxTZFETANzIZbqn1Tdc1nLran1rHD0IARqPWmznjD0mLFW5Hn4PWDv0A" target="blank"><img width="100%" src="http://ubmcmm.baidustatic.com/media/v1/0f000DEffnRjcfesJj_ROs.jpg"></a>
-    </section>
     <footer>
         <div id="faatr">
             <p>沪公网备</p>
