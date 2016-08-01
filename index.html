@@ -219,6 +219,52 @@
             color: #424242;
             padding: 2px 16px;
         }
+        /* Style the buttons that are used to open and close the accordion panel */
+        
+        button.accordion {
+            background-color: #424242;
+            color: #fafafa;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            text-align: left;
+            border: none;
+            outline: none;
+            transition: 0.4s;
+            font-size: 24px;
+        }
+        /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+        
+        button.accordion.active,
+        button.accordion:hover {
+            background-color: #424242;
+        }
+        /* Style the accordion panel. Note: hidden by default */
+        
+        button.accordion:after {
+            content: '\02795';
+            /* Unicode character for "plus" sign (+) */
+            font-size: 24px;
+            color: #fafafa;
+            float: right;
+            margin-left: 5px;
+        }
+        
+        button.accordion.active:after {
+            content: "\2796";
+            /* Unicode character for "minus" sign (-) */
+        }
+        
+        div.panel {
+            padding: 0 18px;
+            background-color: white;
+            display: none;
+        }
+        /* The "show" class is added to the accordion panel when the user clicks on one of the buttons. This will show the panel content */
+        
+        div.panel.show {
+            display: block !important;
+        }
         
         #pc {
             display: none;
@@ -349,6 +395,20 @@
         }
         
         @media only screen and (max-width:760px) {
+            .card {
+                width:100%;
+                margin:0;
+                float: none;
+            }
+            .card img {
+                width:30%;
+                display: block;
+                float:left;
+            }
+            .container {
+                width:70%;
+                float:right;
+            }
             .laga {
                 font-size: 35px;
                 width: 100%;
@@ -498,43 +558,54 @@
             <div class="item" id="item2"><img width="70%" src="https://github.com/popoffices/popoffices.github.io/raw/master/code.png"></div>
         </div>
     </section>
-    <article>
-        <h1>案例精选</h1>
-        <div class="card"> <img src="http://www.popoffices.com/design/app/005/1592/index3.jpg" alt="Avatar" style="width:100%">
-            <div class="container">
-                <h4><b>John Doe</b></h4>
-                <p>Architect & Engineer</p>
+    <article style="margin:30px 0">
+        <button class="accordion active">
+            案例精选</button>
+        <div class="panel show">
+            <div class="card"> <img src="http://www.popoffices.com/design/app/005/1592/index3.jpg" alt="Avatar" style="width:100%">
+                <div class="container">
+                    <h4><b>John Doe</b></h4>
+                    <p>Architect & Engineer</p>
+                </div>
+            </div>
+            <div class="card"> <img src="http://www.popoffices.com/design/app/005/1593/index3.jpg" alt="Avatar" style="width:100%">
+                <div class="container">
+                    <h4><b>John Doe</b></h4>
+                    <p>Architect & Engineer</p>
+                </div>
+            </div>
+            <div class="card"> <img src="http://www.popoffices.com/design/app/005/1594/index3.jpg" alt="Avatar" style="width:100%">
+                <div class="container">
+                    <h4><b>John Doe</b></h4>
+                    <p>Architect & Engineer</p>
+                </div>
+            </div>
+            <div class="card"> <img src="http://www.popoffices.com/design/app/005/1594/index3.jpg" alt="Avatar" style="width:100%">
+                <div class="container">
+                    <h4><b>John Doe</b></h4>
+                    <p>Architect & Engineer</p>
+                </div>
+            </div>
+            <div class="card"> <img src="http://www.popoffices.com/design/app/005/1594/index3.jpg" alt="Avatar" style="width:100%">
+                <div class="container">
+                    <h4><b>John Doe</b></h4>
+                    <p>Architect & Engineer</p>
+                </div>
+            </div>
+            <div class="card"> <img src="http://www.popoffices.com/design/app/005/1594/index3.jpg" alt="Avatar" style="width:100%">
+                <div class="container">
+                    <h4><b>John Doe</b></h4>
+                    <p>Architect & Engineer</p>
+                </div>
             </div>
         </div>
-        <div class="card"> <img src="http://www.popoffices.com/design/app/005/1593/index3.jpg" alt="Avatar" style="width:100%">
-            <div class="container">
-                <h4><b>John Doe</b></h4>
-                <p>Architect & Engineer</p>
-            </div>
+        <button class="accordion">设计图酷</button>
+        <div class="panel">
+            <p>Lorem ipsum...</p>
         </div>
-        <div class="card"> <img src="http://www.popoffices.com/design/app/005/1594/index3.jpg" alt="Avatar" style="width:100%">
-            <div class="container">
-                <h4><b>John Doe</b></h4>
-                <p>Architect & Engineer</p>
-            </div>
-        </div>
-        <div class="card"> <img src="http://www.popoffices.com/design/app/005/1594/index3.jpg" alt="Avatar" style="width:100%">
-            <div class="container">
-                <h4><b>John Doe</b></h4>
-                <p>Architect & Engineer</p>
-            </div>
-        </div>
-        <div class="card"> <img src="http://www.popoffices.com/design/app/005/1594/index3.jpg" alt="Avatar" style="width:100%">
-            <div class="container">
-                <h4><b>John Doe</b></h4>
-                <p>Architect & Engineer</p>
-            </div>
-        </div>
-        <div class="card"> <img src="http://www.popoffices.com/design/app/005/1594/index3.jpg" alt="Avatar" style="width:100%">
-            <div class="container">
-                <h4><b>John Doe</b></h4>
-                <p>Architect & Engineer</p>
-            </div>
+        <button class="accordion">办公家具</button>
+        <div class="panel">
+            <p>Lorem ipsum...</p>
         </div>
     </article>
     <footer>
@@ -616,6 +687,14 @@
 
     function closeNav() {
         document.getElementById("myNav").style.width = "0%";
+    }
+    var acc = document.getElementsByClassName("accordion");
+    var r;
+    for (r = 0; r < acc.length; r++) {
+        acc[r].onclick = function () {
+            this.classList.toggle("active");
+            this.nextElementSibling.classList.toggle("show");
+        }
     }
 </script>
 
