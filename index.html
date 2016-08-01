@@ -256,7 +256,6 @@
         }
         
         div.panel {
-            padding: 0 18px;
             background-color: white;
             display: none;
         }
@@ -392,22 +391,28 @@
             #pc {
                 display: block;
             }
+            .chip {
+                display: none;
+            }
         }
         
         @media only screen and (max-width:760px) {
+            .chip {
+                color: #424242;
+                display: inline-block;
+                padding: 0 25px;
+                width: 100%;
+                font-size: 16px;
+                line-height: 50px;
+                background-color: #f1f1f1;
+            }
+            .chip img {
+                float: left;
+                margin: 0 10px 0 -25px;
+                width: 30%;
+            }
             .card {
-                width:100%;
-                margin:0;
-                float: none;
-            }
-            .card img {
-                width:30%;
-                display: block;
-                float:left;
-            }
-            .container {
-                width:70%;
-                float:right;
+                display: none;
             }
             .laga {
                 font-size: 35px;
@@ -559,8 +564,7 @@
         </div>
     </section>
     <article style="margin:30px 0">
-        <button class="accordion active">
-            案例精选</button>
+        <button class="accordion active"> 案例精选</button>
         <div class="panel show">
             <div class="card"> <img src="http://www.popoffices.com/design/app/005/1592/index3.jpg" alt="Avatar" style="width:100%">
                 <div class="container">
@@ -598,6 +602,9 @@
                     <p>Architect & Engineer</p>
                 </div>
             </div>
+            <div class="chip"> <img src="http://www.popoffices.com/design/app/005/1594/index3.jpg" alt="Person" width="30%"> John Doe </div>
+            <div class="chip"> <img src="http://www.popoffices.com/design/app/005/1594/index3.jpg" alt="Person" width="30%"> John Doe </div>
+            <div class="chip"> <img src="http://www.popoffices.com/design/app/005/1594/index3.jpg" alt="Person" width="30%"> John Doe </div>
         </div>
         <button class="accordion">设计图酷</button>
         <div class="panel">
