@@ -1,853 +1,807 @@
 <!DOCTYPE html>
 <html>
 
-	<head>
-		<meta charset="utf-8">
-		<meta name="wap-font-scale" content="no"> 
-		<meta name="viewport" content="target-densitydpi=device-dpi"> 
-		<meta name="viewport" content="width=device-width,initial-scale=1">
-		<title></title>
-		<style>
-			
-			* {
-				box-sizing: border-box;
-			}
-			
-			html,
-			body {
-				width: 90%;
-				margin-left: 5%;
-				padding-top: 0;
-                padding-bottom: 0;
-                padding-left: 0;
-                padding-right: 0;
-				color: #FFF;
-				font-size: 14px;
-				background-color: #fafafa;
-				font-family:Helvetica,"Microsoft YaHei","Hiragino Sans GB","Noto Sans SC Regular";
-			}
-			
-			.hide {
-				display: none;
-			}
-			
-			.flex-container {
-                                display: -ms-flexbox;
-                                display: -webkit-flex;
-                                display: -webkit-box;
-                                display: flex;
-				width: 100%;
-				-ms-flex-direction: row;
-				-webkit-flex-direction: row;
-				-webkit-box-orient: horizontal;
-				-webkit-box-direction: normal;
-				flex-direction: row;
-			}
-			
-			.flex-container div {
-				margin-top: 0;
-                margin-bottom: 0;
-                margin-left: 0;
-                margin-right: 0;
-				display: block;
-				width: 20%;
-				-ms-flex-align: center;
-				-ms-grid-row-align: center;
-				-webkit-align-items: center;
-				align-items: center;
-				-webkit-box-align: center;
-				text-align: center;
-				cursor: pointer;
-			}
-			
-			.flex-container li,
-			.flex-container a {
-				margin-top: 0;
-                margin-bottom: 0;
-                margin-left: 0;
-                margin-right: 0;
-				display: none;
-				width: 20%;
-				-ms-flex-align: center;
-				-ms-grid-row-align: center;
-				-webkit-align-items: center;
-				-webkit-box-align: center;
-				align-items: center;
-				text-align: center;
-				cursor: pointer;
-			}
-			
-			.align-items-center {
-				display: -ms-flexbox;
-				display: -webkit-flex;
-				display: -webkit-box;
-				display: flex;
-				padding-top: 10px;
-				width: 100%;
-				-ms-flex-direction: row;
-				-webkit-flex-direction: row;
-				-webkit-box-orient: horizontal;
-				-webkit-box-direction: normal;
-				flex-direction: row;
-				-ms-flex-align: center;
-				-webkit-align-items: center;
-				-webkit-box-align: center;
-				align-items: center;
-			}
-			
-			.item {
-				margin: 0;
-				display: block;
-				-ms-flex-align: center;
-				-ms-grid-row-align: center;
-				-webkit-align-items: center;
-				-webkit-box-align: center;
-				align-items: center;
-			}
-			
-			#item1 {
-				-ms-flex: 0 0 60%;
-				-webkit-flex: 0 0 60%;
-				-webkit-box-flex: 0;
-				flex: 0 0 60%;
-				background-color: #424242;
-				text-align: center;
-			}
-			
-			#item2 {
-				-ms-flex: 0 0 40%;
-				-webkit-flex: 0 0 40%;
-				-webkit-box-flex: 0;
-				flex: 0 0 40%;
-				background-color: #FAFAFA;
-				text-align: center;
-			}
-			
-			.slideshow-container {
-				position: relative;
-			}
-			
-			.prev,
-			.next {
-				cursor: pointer;
-				position: absolute;
-				top: 0;
-				top: 50%;
-				width: auto;
-				margin-top: -22px;
-				padding: 16px;
-				color: #fff;
-				font-weight: 700;
-				font-size: 18px;
-				-webkit-transition: .6s ease;
-				transition: .6s ease;
-				border-radius: 0 3px 3px 0;
-			}
-			
-			.prev {
-				left: 0;
-				border-radius: 3px 0 0 3px;
-			}
-			
-			.next {
-				right: 0;
-				border-radius: 3px 0 0 3px;
-			}
-			
-			.prev:hover,
-			.next:hover {
-				background-color: rgba(0, 0, 0, .8);
-			}
-			
-			.text {
-				color: #f2f2f2;
-				font-size: 15px;
-				padding: 5px 12px;
-				position: absolute;
-				bottom: 8px;
-				width: 100%;
-				text-align: center;
-				background-color: rgba(66, 66, 66, .6);
-			}
-			
-			.numbertext {
-				color: #f2f2f2;
-				font-size: 12px;
-				padding: 8px 12px;
-				position: absolute;
-				background-color: rgba(66, 66, 66, .6);
-				top: 0;
-			}
-			
-			.dot {
-				margin-top: 2px;
-                margin-bottom: 2px;
-                margin-left: 2px;
-                margin-right: 2px;
-				cursor: pointer;
-				height: 13px;
-				width: 13px;
-				background-color: #616161;
-				border-radius: 50%;
-				display: inline-block;
-				-webkit-transition: background-color .6s ease;
-				transition: background-color .6s ease;
-			}
-			
-			.active,
-			.dot:hover {
-				background-color: #fafafa;
-			}
-			
-			.hr-text {
-				margin-top: -30px;
-				position: relative;
-				outline: 0;
-				border: 0;
-				color: #000;
-				text-align: center;
-				height: 1.5em;
-				opacity: .5;
-			}
-			
-			.hr-text:before {
-				content: '';
-				background: -webkit-linear-gradient(left, transparent, #818078, transparent);
-				background: linear-gradient(to right, transparent, #818078, transparent);
-				position: absolute;
-				left: 0;
-				top: 50%;
-				width: 100%;
-				height: 1px;
-			}
-			
-			.hr-text:after {
-				content: attr(data-content);
-				position: relative;
-				display: inline-block;
-				color: #000;
-				padding-top: 0;
-                padding-bottom: 0;
-                padding-left: .5em;
-                padding-right: .5em;
-				line-height: 1.5em;
-				color: #818078;
-				background-color: #fcfcfa;
-			}
-			
-			.partner,
-			.section {
-				padding-bottom: 30px;
-			}
-			
-			.partner p,
-			.section p {
-				margin-bottom: -10px;
-			}
-			
-			.partner h1,
-			.section h1 {
-				color: #424242;
-				display: inline-block;
-			}
-			
-			.partner h3,
-			.section h3 {
-				color: #E91E63;
-				display: inline-block; 
-			}
-			
-			.section div,
-			.section div::before,
-			.section div::after,
-			.section img,
-			.section span {
-				-webkit-transition: all .2s;
-				transition: all .2s;
-			}
-			
-			.partner a {
-				width: 160;
-				height: 90;
-				text-align: center;
-				margin-left: auto;
-				margin-right: auto;
-			}
-			
-			.partner a {
-				color: #424242;
-				font-size: 9px;
-			}
-			
-			.section img {
-				width: 100%;
-				height: 100%;
-				display: block;
-			}
-			
-			.section div {
-				width: 32.9%;
-                margin-top: 0;
-                margin-left: 0px;
-                margin-right: 1px;
-                margin-bottom: 1px;
-				float: left;
-				position: relative;
-				overflow: hidden;
-			}
-			
-			.partner div {
-				width: 24%;
-				margin: 0 1px 1px 0;
-				float: left;
-				position: relative;
-				overflow: hidden;
-				text-align: center;
-			}
-			
-			.section div:hover img {
-				-webkit-transform: scale(1.25);
-				-ms-transform: scale(1.25);
-				transform: scale(1.25)
-			}
-			
-			.section div:hover span {
-				opacity: 1;
-				background-color: rgba(42, 42, 42, .8)
-			}
-			
-			.section div::before {
-				content: "";
-				position: absolute;
-				top: 0;
-				right: 0;
-				bottom: 0;
-				left: 0;
-				z-index: 1;
-			}
-			
-			.section div:hover::before {
-				-webkit-backdrop-filter: blur(10px) saturate(120%);
-				backdrop-filter: blur(10px) saturate(120%)
-			}
-			
-			.section div::after {
-				content: "";
-				height: 75px;
-				width: 75px;
-				position: absolute;
-				top: 50%;
-				left: 50%;
-				z-index: 2;
-				-webkit-transform: translate(-50%, -50%);
-				-ms-transform: translate(-50%, -50%);
-				transform: translate(-50%, -50%);
-				opacity: 0;
-			}
-			
-			.section div:hover::after {
-				opacity: 1;
-			}
-			
-			.section span {
-				padding-top: 50%;
-				padding-bottom: 50%;
-				width: 100%;
-				height: auto;
-				color: #fff;
-				position: absolute;
-				top: 50%;
-				left: 50%;
-				z-index: 3;
-				-webkit-transform: translate(-50%, -50%);
-				-ms-transform: translate(-50%, -50%);
-				transform: translate(-50%, -50%);
-				opacity: 0;
-				text-align: center;
-				text-transform: uppercase;
-				text-shadow: 0 0 4px rgba(0, 0, 0, .65);
-			}
-			
-			#pc {
-				display: none;
-			}
-			
-			footer {
-				margin-top:100px;
-				background: #424242;
-				width: 100%;
-				height: 100px;
-			}
-			
-			footer div {
-				margin-top: 10px;
-				display: inline-block;
-				float: right;
-				width: 32%;
-				margin-left: .25%;
-				margin-right: .25%;
-				text-align: center
-			}
-			
-			footer p {
-				font-size: 12px;
-			}
-			
-			.header {
-				z-index: 9999;
-				top: 0;
-				bottom: 0;
-				left: 0;
-				right: 0;
-				position: fixed;
-				width: 100%;
-				height: 100%;
-				background-color: #FFF;
-				display: block;
-				text-align: center;
-			}
-			
-			.loader {
-				margin-top: 30%;
-				margin-left: auto;
-				margin-right: auto;
-				border: 16px solid #FFF;
-				border-top: 16px solid #E91E63;
-				border-bottom: 16px solid #424242;
-				border-radius: 50%;
-				width: 120px;
-				height: 120px;
-				animation: spin 2s linear infinite;
-				-webkit-animation: spin 2s linear infinite;
-			}
-			
-			.header p {
-				color: #424242;
-				font-family:Helvetica,"Microsoft YaHei","Hiragino Sans GB","Noto Sans SC Regular";
-			}
-			
-			@keyframes spin {
-				0% {
-					-webkit-transform: rotate(0deg);
-					transform: rotate(0deg)
-				}
-				100% {
-					-webkit-transform: rotate(360deg);
-					transform: rotate(360deg)
-				}
-			}
-			
-			@-webkit-keyframes spin {
-				0% {
-					-webkit-transform: rotate(0deg);
-					transform: rotate(0deg)
-				}
-				100% {
-					-webkit-transform: rotate(360deg);
-					transform: rotate(360deg)
-				}
-			}
-			
-			.laga {
-				display: inline-block;
-				float: left;
-				width: 60%;
-				font-size: 40px;
-				font-weight:900;
-				font-family:Helvetica,"Microsoft YaHei","Hiragino Sans GB","Roboto Regular";
-			}
-			
-			.laga a {
-				color: #424242;
-			}
-			
-			.laga span {
-				color: #E91E63;
-			}
-			
-			.slogan {
-				padding-top: 9px;
-				display: inline-block;
-				float: right;
-				width: 40%;
-				margin-bottom: 0;
-			}
-			
-			.slogan p {
-				font-size: 10px;
-				color: #424242;
-				text-align: right;
-				line-height: 0;
-			}
-			
-			.slogan span {
-				color: #E91E63;
-			} 
-			
-			@media screen and (min-width:760px) {
-				#mb {
-					display: none;
-				}
-				.loader {
-					margin-top: 20%;
-				}
-				.section div {
-					width: -webkit-calc(20% - 1px);
-					width: calc(20% - 1px);
-				}
-				.partner div {
-					width: -webkit-calc(12.5% - 1px);
-					width: calc(12.5% - 1px);
-				}
-				#pc {
-					display: block;
-				}
-				.partner a {
-					font-size: 12px;
-				}
-			}
-			
-			@media only screen and (max-width:760px) {
-				.laga {
-					font-size: 35px;
-					width: 100%;
-					text-align: center;
-				}
-				.slogan {
-					display: none;
-				}
-				#feetm {
-					width: 100%;
-				}
-				.section span {
-					padding-top: 10%;
-					padding-bottom: 10%;
-					opacity: 1;
-					background-color: rgba(42, 42, 42, .8);
-					top: 90%;
-				}
-				footer [id*=faat] {
-					display: none;
-				}
-				html,
-				body {
-					width: 100%;
-					margin: 0;
-				}
-				.flex-container div {
-					width: 100%;
-					display: none;
-				}
-				.flex-container.column div {
-					display: block;
-					width: 100%;
-					box-shadow: 0 8px 16px 0 rgba(0, 0, 0, .2);
-					padding-top: 3px;
-					padding-bottom: 3px;
-				}
-				.flex-container li,
-				.flex-container a {
-					display: block;
-					width: 33%;
-					text-align: center;
-					padding-top: 3px;
-					padding-bottom: 3px;
-				}
-				#m1 {
-					width: 34%;
-				}
-				.flex-container.column a {
-					display: none;
-				}
-				.flex-container.column li {
-					width: 100%;
-					display: block;
-					padding-top: 3px;
-					padding-bottom: 3px;
-				}
-				.flex-container.column {
-					-ms-flex-direction: column;
-					-webkit-flex-direction: column;
-					-webkit-box-orient: vertical;
-					-webkit-box-direction: normal;
-					flex-direction: column;
-					width: 100%;
-					padding-top: 3px;
-					padding-bottom: 3px;
-				}
-				#item2 {
-					display: none;
-				}
-				#item1 {
-					-ms-flex: 0 0 100%;
-					-webkit-flex: 0 0 100%;
-					-webkit-box-flex: 0;
-					flex: 0 0 100%;
-					background-color: #424242
-				}
-				.flex-container li:hover .flex-container {
-					display: block;
-					margin-bottom: 5px;
-				}
-				#dot {
-					display: none;
-				}
-			}
-		</style>
-	</head>
+<head>
+    <meta charset="utf-8">
+    <meta name="wap-font-scale" content="no">
+    <meta name="viewport" content="target-densitydpi=device-dpi">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title></title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        
+        html,
+        body {
+            width: 90%;
+            margin-left: 5%;
+            padding-top: 0;
+            padding-bottom: 0;
+            padding-left: 0;
+            padding-right: 0;
+            color: #FFF;
+            font-size: 14px;
+            background-color: #fafafa;
+            font-family: Helvetica, "Microsoft YaHei", "Hiragino Sans GB", "Noto Sans SC Regular";
+        }
+        
+        .hide {
+            display: none;
+        }
+        
+        .flex-container {
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: -webkit-box;
+            display: flex;
+            width: 100%;
+            -ms-flex-direction: row;
+            -webkit-flex-direction: row;
+            -webkit-box-orient: horizontal;
+            -webkit-box-direction: normal;
+            flex-direction: row;
+        }
+        
+        .flex-container div {
+            margin-top: 0;
+            margin-bottom: 0;
+            margin-left: 0;
+            margin-right: 0;
+            display: block;
+            width: 20%;
+            -ms-flex-align: center;
+            -ms-grid-row-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+            -webkit-box-align: center;
+            text-align: center;
+            cursor: pointer;
+        }
+        
+        .flex-container li,
+        .flex-container a {
+            margin-top: 0;
+            margin-bottom: 0;
+            margin-left: 0;
+            margin-right: 0;
+            display: none;
+            width: 20%;
+            -ms-flex-align: center;
+            -ms-grid-row-align: center;
+            -webkit-align-items: center;
+            -webkit-box-align: center;
+            align-items: center;
+            text-align: center;
+            cursor: pointer;
+        }
+        
+        .align-items-center {
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: -webkit-box;
+            display: flex;
+            padding-top: 10px;
+            width: 100%;
+            -ms-flex-direction: row;
+            -webkit-flex-direction: row;
+            -webkit-box-orient: horizontal;
+            -webkit-box-direction: normal;
+            flex-direction: row;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            -webkit-box-align: center;
+            align-items: center;
+        }
+        
+        .item {
+            margin: 0;
+            display: block;
+            -ms-flex-align: center;
+            -ms-grid-row-align: center;
+            -webkit-align-items: center;
+            -webkit-box-align: center;
+            align-items: center;
+        }
+        
+        #item1 {
+            -ms-flex: 0 0 60%;
+            -webkit-flex: 0 0 60%;
+            -webkit-box-flex: 0;
+            flex: 0 0 60%;
+            background-color: #424242;
+            text-align: center;
+        }
+        
+        #item2 {
+            -ms-flex: 0 0 40%;
+            -webkit-flex: 0 0 40%;
+            -webkit-box-flex: 0;
+            flex: 0 0 40%;
+            background-color: #FAFAFA;
+            text-align: center;
+        }
+        
+        .slideshow-container {
+            position: relative;
+        }
+        
+        .prev,
+        .next {
+            cursor: pointer;
+            position: absolute;
+            top: 0;
+            top: 50%;
+            width: auto;
+            margin-top: -22px;
+            padding: 16px;
+            color: #fff;
+            font-weight: 700;
+            font-size: 18px;
+            -webkit-transition: .6s ease;
+            transition: .6s ease;
+            border-radius: 0 3px 3px 0;
+        }
+        
+        .prev {
+            left: 0;
+            border-radius: 3px 0 0 3px;
+        }
+        
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+        
+        .prev:hover,
+        .next:hover {
+            background-color: rgba(0, 0, 0, .8);
+        }
+        
+        .text {
+            color: #f2f2f2;
+            font-size: 15px;
+            padding: 5px 12px;
+            position: absolute;
+            bottom: 8px;
+            width: 100%;
+            text-align: center;
+            background-color: rgba(66, 66, 66, .6);
+        }
+        
+        .numbertext {
+            color: #f2f2f2;
+            font-size: 12px;
+            padding: 8px 12px;
+            position: absolute;
+            background-color: rgba(66, 66, 66, .6);
+            top: 0;
+        }
+        
+        .dot {
+            margin-top: 2px;
+            margin-bottom: 2px;
+            margin-left: 2px;
+            margin-right: 2px;
+            cursor: pointer;
+            height: 13px;
+            width: 13px;
+            background-color: #616161;
+            border-radius: 50%;
+            display: inline-block;
+            -webkit-transition: background-color .6s ease;
+            transition: background-color .6s ease;
+        }
+        
+        .active,
+        .dot:hover {
+            background-color: #fafafa;
+        }
+        
+        .hr-text {
+            margin-top: -30px;
+            position: relative;
+            outline: 0;
+            border: 0;
+            color: #000;
+            text-align: center;
+            height: 1.5em;
+            opacity: .5;
+        }
+        
+        .hr-text:before {
+            content: '';
+            background: -webkit-linear-gradient(left, transparent, #818078, transparent);
+            background: linear-gradient(to right, transparent, #818078, transparent);
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 100%;
+            height: 1px;
+        }
+        
+        .hr-text:after {
+            content: attr(data-content);
+            position: relative;
+            display: inline-block;
+            color: #000;
+            padding-top: 0;
+            padding-bottom: 0;
+            padding-left: .5em;
+            padding-right: .5em;
+            line-height: 1.5em;
+            color: #818078;
+            background-color: #fcfcfa;
+        }
+        
+        .partner,
+        .section {
+            padding-bottom: 30px;
+        }
+        
+        .partner p,
+        .section p {
+            margin-bottom: -10px;
+        }
+        
+        .partner h1,
+        .section h1 {
+            color: #424242;
+            display: inline-block;
+        }
+        
+        .partner h3,
+        .section h3 {
+            color: #E91E63;
+            display: inline-block;
+        }
+        
+        .section div,
+        .section div::before,
+        .section div::after,
+        .section img,
+        .section span {
+            -webkit-transition: all .2s;
+            transition: all .2s;
+        }
+        
+        .partner a {
+            width: 160;
+            height: 90;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .partner a {
+            color: #424242;
+            font-size: 9px;
+        }
+        
+        .section img {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+        
+        .section div {
+            width: 32.9%;
+            margin-top: 0;
+            margin-left: 0px;
+            margin-right: 1px;
+            margin-bottom: 1px;
+            float: left;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .partner div {
+            width: 24%;
+            margin: 0 1px 1px 0;
+            float: left;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+        
+        .section div:hover img {
+            -webkit-transform: scale(1.25);
+            -ms-transform: scale(1.25);
+            transform: scale(1.25)
+        }
+        
+        .section div:hover span {
+            opacity: 1;
+            background-color: rgba(42, 42, 42, .8)
+        }
+        
+        .section div::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 1;
+        }
+        
+        .section div:hover::before {
+            -webkit-backdrop-filter: blur(10px) saturate(120%);
+            backdrop-filter: blur(10px) saturate(120%)
+        }
+        
+        .section div::after {
+            content: "";
+            height: 75px;
+            width: 75px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            z-index: 2;
+            -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            opacity: 0;
+        }
+        
+        .section div:hover::after {
+            opacity: 1;
+        }
+        
+        .section span {
+            padding-top: 50%;
+            padding-bottom: 50%;
+            width: 100%;
+            height: auto;
+            color: #fff;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            z-index: 3;
+            -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            text-align: center;
+            text-transform: uppercase;
+            text-shadow: 0 0 4px rgba(0, 0, 0, .65);
+        }
+        
+        #pc {
+            display: none;
+        }
+        
+        footer {
+            margin-top: 100px;
+            background: #424242;
+            width: 100%;
+            height: 100px;
+        }
+        
+        footer div {
+            margin-top: 10px;
+            display: inline-block;
+            float: right;
+            width: 32%;
+            margin-left: .25%;
+            margin-right: .25%;
+            text-align: center
+        }
+        
+        footer p {
+            font-size: 12px;
+        }
+        
+        .header {
+            z-index: 9999;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background-color: #FFF;
+            display: block;
+            text-align: center;
+        }
+        
+        .loader {
+            margin-top: 30%;
+            margin-left: auto;
+            margin-right: auto;
+            border: 16px solid #FFF;
+            border-top: 16px solid #E91E63;
+            border-bottom: 16px solid #424242;
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            animation: spin 2s linear infinite;
+            -webkit-animation: spin 2s linear infinite;
+        }
+        
+        .header p {
+            color: #424242;
+            font-family: Helvetica, "Microsoft YaHei", "Hiragino Sans GB", "Noto Sans SC Regular";
+        }
+        
+        @keyframes spin {
+            0% {
+                -webkit-transform: rotate(0deg);
+                transform: rotate(0deg)
+            }
+            100% {
+                -webkit-transform: rotate(360deg);
+                transform: rotate(360deg)
+            }
+        }
+        
+        @-webkit-keyframes spin {
+            0% {
+                -webkit-transform: rotate(0deg);
+                transform: rotate(0deg)
+            }
+            100% {
+                -webkit-transform: rotate(360deg);
+                transform: rotate(360deg)
+            }
+        }
+        
+        .laga {
+            display: inline-block;
+            float: left;
+            width: 60%;
+            font-size: 40px;
+            font-weight: 900;
+            font-family: Helvetica, "Microsoft YaHei", "Hiragino Sans GB", "Roboto Regular";
+        }
+        
+        .laga a {
+            color: #424242;
+        }
+        
+        .laga span {
+            color: #E91E63;
+        }
+        
+        .slogan {
+            padding-top: 9px;
+            display: inline-block;
+            float: right;
+            width: 40%;
+            margin-bottom: 0;
+        }
+        
+        .slogan p {
+            font-size: 10px;
+            color: #424242;
+            text-align: right;
+            line-height: 0;
+        }
+        
+        .slogan span {
+            color: #E91E63;
+        }
+        
+        @media screen and (min-width:760px) {
+            #mb {
+                display: none;
+            }
+            .loader {
+                margin-top: 20%;
+            }
+            .section div {
+                width: -webkit-calc(20% - 1px);
+                width: calc(20% - 1px);
+            }
+            .partner div {
+                width: -webkit-calc(12.5% - 1px);
+                width: calc(12.5% - 1px);
+            }
+            #pc {
+                display: block;
+            }
+            .partner a {
+                font-size: 12px;
+            }
+        }
+        
+        @media only screen and (max-width:760px) {
+            .laga {
+                font-size: 35px;
+                width: 100%;
+                text-align: center;
+            }
+            .slogan {
+                display: none;
+            }
+            #feetm {
+                width: 100%;
+            }
+            .section span {
+                padding-top: 10%;
+                padding-bottom: 10%;
+                opacity: 1;
+                background-color: rgba(42, 42, 42, .8);
+                top: 90%;
+            }
+            footer [id*=faat] {
+                display: none;
+            }
+            html,
+            body {
+                width: 100%;
+                margin: 0;
+            }
+            .flex-container div {
+                width: 100%;
+                display: none;
+            }
+            .flex-container.column div {
+                display: block;
+                width: 100%;
+                box-shadow: 0 8px 16px 0 rgba(0, 0, 0, .2);
+                padding-top: 3px;
+                padding-bottom: 3px;
+            }
+            .flex-container li,
+            .flex-container a {
+                display: block;
+                width: 33%;
+                text-align: center;
+                padding-top: 3px;
+                padding-bottom: 3px;
+            }
+            #m1 {
+                width: 34%;
+            }
+            .flex-container.column a {
+                display: none;
+            }
+            .flex-container.column li {
+                width: 100%;
+                display: block;
+                padding-top: 3px;
+                padding-bottom: 3px;
+            }
+            .flex-container.column {
+                -ms-flex-direction: column;
+                -webkit-flex-direction: column;
+                -webkit-box-orient: vertical;
+                -webkit-box-direction: normal;
+                flex-direction: column;
+                width: 100%;
+                padding-top: 3px;
+                padding-bottom: 3px;
+            }
+            #item2 {
+                display: none;
+            }
+            #item1 {
+                -ms-flex: 0 0 100%;
+                -webkit-flex: 0 0 100%;
+                -webkit-box-flex: 0;
+                flex: 0 0 100%;
+                background-color: #424242
+            }
+            .flex-container li:hover .flex-container {
+                display: block;
+                margin-bottom: 5px;
+            }
+            #dot {
+                display: none;
+            }
+        }
+    </style>
+</head>
 
-	<body>
-		<header class="header" id="aside">
-			<div class="loader"></div>
-			<br>
-			<p>LOADING</p>
-			<p>首次加载比较慢，请稍后</p>
-		</header>
-		<header>
-			<div class="laga">
-				<a>POPOFFICES</a><span>.COM</span></div>
-			<div class="slogan">
-				<p>全球化的视野</p>
-				<p><span>时尚的设计理念</span></p>
-				<p>专业的办公室设计资讯平台</p>
-			</div>
-		</header>
-		<nav>
-			<div class="flex-container" id="direction">
-				<li style="background-color:#ec407a" onclick="mu()">
-					<p id="x">=</p>
-				</li>
-				<a id="m1" style="background-color:#e91e63">
-					<p>POPOFFICES</p>
-				</a>
-				<a id="m2" style="background-color:#d81b60" onclick="openNav()">
-					<p>i</p>
-				</a>
-				<div id="q" style="background-color:#e91e63">
-					<p>首页</p>
-				</div>
-				<div style="background-color:#d81b60">
-					<p>案例</p>
-				</div>
-				<div style="background-color:#c2185b">
-					<p>图库</p>
-				</div>
-				<div style="background-color:#ad1457">
-					<p>建材</p>
-				</div>
-				<div style="background-color:#880e4f">
-					<p>家具</p>
-				</div>
-			</div>
-		</nav>
-		<article>
-			<div class="align-items-center">
-				<div class="item" id="item1">
-					<div class="slideshow-container">
-						<div class="mySlides">
-							<div class="numbertext">1/5</div><img src="http://www.popoffices.com/design/app/005/1590/index2.jpg" style="width:100%">
-							<div class="text">动感曲线 Dow化学公司墨西哥办公设计欣赏</div>
-						</div>
-						<div class="mySlides">
-							<div class="numbertext">2/5</div><img src="http://www.popoffices.com/design/app/005/1578/index2.jpg" style="width:100%">
-							<div class="text">重装上阵 Varonis纽约总部一期办公设计欣赏</div>
-						</div>
-						<div class="mySlides">
-							<div class="numbertext">3/5</div><img src="http://www.popoffices.com/design/app/005/1589/index2.jpg" style="width:100%">
-							<div class="text">黑白秩序下的极简主义 上海因途Intoo办公设计欣赏</div>
-						</div>
-						<div class="mySlides">
-							<div class="numbertext">4/5</div><img src="http://www.popoffices.com/design/app/005/1592/index2.jpg" style="width:100%">
-							<div class="text">刘恺+RIGI 睿集设计办公空间欣赏</div>
-						</div>
-						<div class="mySlides">
-							<div class="numbertext">5/5</div><img src="http://www.popoffices.com/design/app/005/1580/index2.jpg" style="width:100%">
-							<div class="text">上班就这么任性 Social Tables华盛顿总部设计欣赏</div>
-						</div>
-						<a class="prev" onclick="plusSlides(-1)">《</a>
-						<a class="next" onclick="plusSlides(1)">》</a>
-					</div><br><div id="dot" style="text-align:center;margin-top:-18px"><span class="dot" onclick="currentSlide(1)"></span><span class="dot" onclick="currentSlide(2)"></span><span class="dot" onclick="currentSlide(3)"></span><span class="dot" onclick="currentSlide(4)"></span><span class="dot" onclick="currentSlide(5)"></span></div>
-				</div>
-				<div class="item" id="item2"><img width="70%" src="https://github.com/popoffices/popoffices.github.io/raw/master/code.png"></div>
-			</div>
-		</article>
-		<section class="section">
-			<p>
-				<h1>&nbsp;案例精选</h1>
-				<h3><b>OFFICES</b></h3>
-				<h1 style="float:right"><b>▼&nbsp;</b></h1></p>
-			<hr class="hr-text" data-content="OFFICES">
-			<div><img src="http://www.popoffices.com/design/app/005/1585/1585.jpg"><span>Wildcraft</span></div>
-			<div><img src="http://www.popoffices.com/design/app/005/1586/1586.jpg"><span>John Brown</span></div>
-			<div><img src="http://www.popoffices.com/design/app/005/1587/1587.jpg"><span>Putao</span></div>
-			<div><img src="http://www.popoffices.com/design/app/005/1588/1588.jpg"><span>Red Bull</span></div>
-			<div><img src="http://www.popoffices.com/design/app/005/1589/1589.jpg"><span>Intoo</span></div>
-			<div><img src="http://www.popoffices.com/design/app/005/1590/1590.jpg"><span>DOW</span></div>
-			<div><img src="http://www.popoffices.com/design/app/005/1591/1591.jpg"><span>Harris HMC</span></div>
-			<div><img src="http://www.popoffices.com/design/app/005/1592/1592.jpg"><span>LK+RIGI</span></div>
-			<div><img src="http://fakeimg.pl/400x400/424242/ffffff/?text=More&font=bebas"><span id="mb">OFFICES</span></div>
-			<div id="pc"><img src="http://fakeimg.pl/400x400/424242/ffffff/?text=OFFICES&font=bebas"></div>
-		</section>
-		<section class="partner">
-			<p>
-				<h1><b>&nbsp;友情链接</b></h1>
-				<h3><b>PARTNER</b></h3>
-				<h1 style="float:right"><b>▼&nbsp;</b></h1></p>
-			<hr class="hr-text" data-content="PARTNER">
-			<div>
-				<a href="http://www.fortunechina.com/" target="_blank">《财富》</a>
-			</div>
-			<div>
-				<a href="http://www.ceconline.com" target="_blank">《世界经理人》</a>
-			</div>
-			<div>
-				<a href="http://shanghai.chineseoffice.com.cn/" target="_blank">中国写字楼网</a>
-			</div>
-			<div>
-				<a href="http://www.garnet.com.cn/" target="_blank">简诺空间设计</a>
-			</div>
-			<div>
-				<a href="http://www.visionunion.com" target="_blank">视觉同盟</a>
-			</div>
-			<div>
-				<a href="http://www.ciid.com.cn/" target="_blank">中国室内网</a>
-			</div>
-			<div>
-				<a href="http://www.ideamsg.com/" target="_blank">灵感日报</a>
-			</div>
-			<div>
-				<a href="http://www.far2000.com/" target="_blank">自由建筑报道</a>
-			</div>
-			<div>
-				<a href="http://www.id-china.com.cn/" target="_blank">《室内设计》中文</a>
-			</div>
-			<div>
-				<a href="http://www.Vartcn.com/" target="_blank">艺术中国网</a>
-			</div>
-			<div>
-				<a href="http://www.chinavisual.com/" target="_blank">视觉中国网</a>
-			</div>
-			<div>
-				<a href="http://www.arting365.com/" target="_blank">中国艺术设计联盟</a>
-			</div>
-			<div>
-				<a href="http://dolcn.com/" target="_blank">设计在线</a>
-			</div>
-			<div>
-				<a href="http://www.ionly.com.cn/" target="_blank">东方视觉</a>
-			</div>
-			<div>
-				<a href="http://www.china-designer.com/" target="_blank">建筑与室内设计师</a>
-			</div>
-			<div>
-				<a href="http://www.archi123.com/" target="_blank">知筑网</a>
-			</div>
-			<div>
-				<a href="http://www.interiordesign.net" target="_blank">interiordesign</a>
-			</div>
-			<div>
-				<a href="http://www.uapid.com/" target="_blank">设计联</a>
-			</div>
-			<div>
-				<a href="http://www.xiufun.com" target="_blank">修房网</a>
-			</div>
-			<div>
-				<a href="http://www.shanghai-da.com" target="_blank">上海创意设计工作者协会</a>
-			</div>
-			<div>
-				<a href="http://www.zcool.com.cn/" target="_blank">站酷ZCOOL</a>
-			</div>
-			<div>
-				<a href="http://www.51room.net" target="_blank">51房产网</a>
-			</div>
-			<div>
-				<a href="http://www.spider.com.cn" target="_blank">蜘蛛网</a>
-			</div>
-			<div>
-				<a href="http://www.haoyin.com" target="_blank">好印网</a>
-			</div><br></section><br>
-		<section id="ad" class="partner"><br>
-			<a href="http://pos.baidu.com/cclick.php?000000aLe7J1mHAetBMLeaLS4vvrjaNCPQhj8yAY0fuIKwsAoPwrugSezskKiMHcoshk2LeThqdbWim9w0_qPgM_sBkmyEugI5VXC-HgOkXEs3FSNIXUyQyRahYq.DR_auroKZzfTnXBra2ZHZKj7MJem2QnN1tYDpyuCpE5nSFnZ3neVXVt2TtzpjnvGPKSU5k-l7BmtI-hOxuELt_rrumuCyr1_3eqz60.mhwGujY0mLKGujYsn1wKf1wDn1f4fb7KnYR3PjD1PDPaPWc3njf3wDf3r0K3pg0qnH08nW03QWDzPz3YP0KLu7tkIZF9uARqrfKLu7tzIZF9uARqrH0k0AwEUy7GU-qhpgF1I7qYTh7buHYkP0KbUvd9py4xTvNWUv4bgLwzmyw-5HDYnjc0TAtqn6Ksm1Y3n100mv9VujYk0ZPWpAdb5H00TL0qnfK9uZfqnfKvpyw-UdqWpA78UhN_5H00IgP-T-qYXgK-5HD0TvNzIh-8udqYXgK-5H00ugfqn0KVm1Ys0A7bmvk9TLnqn0KYIHddnH6snWRvn6KYUHYkPjR1rHf30Zwb5HD3njcdPWc0IA7z5HD0TLPs5HD0IZws5HD0mvqVTAk-5H00ULnqn0KBTWYkn6K9uvRqn0KWIA_q0AwYTjYk0ZNzUjdCIZwsrBtETAqsUvuhpyP-Tz4WUvYE0ZIGuZwC5HTzr0KCuy-MpZfqrH00myw3gvFGu7qWTAYqnW0sn0KWpjYs0A7duA--UhP-gLwzmyw-5Hf3PsKMuy4bugFxpyfqn1Tv0Ad9TMFGmyI-gv-b5HnLPsK1IA7YpyPxTZFETANzIZbqn1Tdc1nLran1rHD0IARqPWmznjD0mLFW5Hn4PWDv0A" target="blank"><img width="100%" src="http://ubmcmm.baidustatic.com/media/v1/0f000DEffnRjcfesJj_ROs.jpg"></a>
-		</section>
-		<footer>
-			<div id="faatr">
-				<p>沪公网备</p>
-				<p>310107100039708</p>
-			</div>
-			<div id="feetm">
-				<p>Copyright © 2009-2016 Popoffices.com</p>
-				<p>All Rights Reserved 沪ICP备09044784号</p>
-			</div>
-			<div id="faatl">
-				<p>时尚办公网</p>
-				<p>www.popoffices.com</p>
-			</div>
-		</footer>
-	</body>
-	<script>
-		function mu() {
-			var x = document.getElementById("x");
-			var mu = document.getElementById("direction");
-			if(mu.className === "flex-container") {
-				mu.className += " column";
-				x.innerHTML = "X";
-			} else {
-				mu.className = "flex-container";
-				x.innerHTML = "=";
-			}
-		}
+<body>
+    <header class="header" id="aside">
+        <div class="loader"></div>
+        <br>
+        <p>LOADING</p>
+        <p>首次加载比较慢，请稍后</p>
+    </header>
+    <header>
+        <div class="laga"> <a>POPOFFICES</a><span>.COM</span></div>
+        <div class="slogan">
+            <p>全球化的视野</p>
+            <p><span>时尚的设计理念</span></p>
+            <p>专业的办公室设计资讯平台</p>
+        </div>
+    </header>
+    <nav>
+        <div class="flex-container" id="direction">
+            <li style="background-color:#ec407a" onclick="mu()">
+                <p id="x">=</p>
+            </li>
+            <a id="m1" style="background-color:#e91e63">
+                <p>POPOFFICES</p>
+            </a>
+            <a id="m2" style="background-color:#d81b60" onclick="openNav()">
+                <p>i</p>
+            </a>
+            <div id="q" style="background-color:#e91e63">
+                <p>首页</p>
+            </div>
+            <div style="background-color:#d81b60">
+                <p>案例</p>
+            </div>
+            <div style="background-color:#c2185b">
+                <p>图库</p>
+            </div>
+            <div style="background-color:#ad1457">
+                <p>建材</p>
+            </div>
+            <div style="background-color:#880e4f">
+                <p>家具</p>
+            </div>
+        </div>
+    </nav>
+    <article>
+        <div class="align-items-center">
+            <div class="item" id="item1">
+                <div class="slideshow-container">
+                    <div class="mySlides">
+                        <div class="numbertext">1/5</div><img src="http://www.popoffices.com/design/app/005/1590/index2.jpg" style="width:100%">
+                        <div class="text">动感曲线 Dow化学公司墨西哥办公设计欣赏</div>
+                    </div>
+                    <div class="mySlides">
+                        <div class="numbertext">2/5</div><img src="http://www.popoffices.com/design/app/005/1578/index2.jpg" style="width:100%">
+                        <div class="text">重装上阵 Varonis纽约总部一期办公设计欣赏</div>
+                    </div>
+                    <div class="mySlides">
+                        <div class="numbertext">3/5</div><img src="http://www.popoffices.com/design/app/005/1589/index2.jpg" style="width:100%">
+                        <div class="text">黑白秩序下的极简主义 上海因途Intoo办公设计欣赏</div>
+                    </div>
+                    <div class="mySlides">
+                        <div class="numbertext">4/5</div><img src="http://www.popoffices.com/design/app/005/1592/index2.jpg" style="width:100%">
+                        <div class="text">刘恺+RIGI 睿集设计办公空间欣赏</div>
+                    </div>
+                    <div class="mySlides">
+                        <div class="numbertext">5/5</div><img src="http://www.popoffices.com/design/app/005/1580/index2.jpg" style="width:100%">
+                        <div class="text">上班就这么任性 Social Tables华盛顿总部设计欣赏</div>
+                    </div> <a class="prev" onclick="plusSlides(-1)">《</a> <a class="next" onclick="plusSlides(1)">》</a> </div>
+                <br>
+                <div id="dot" style="text-align:center;margin-top:-18px"><span class="dot" onclick="currentSlide(1)"></span><span class="dot" onclick="currentSlide(2)"></span><span class="dot" onclick="currentSlide(3)"></span><span class="dot" onclick="currentSlide(4)"></span><span class="dot" onclick="currentSlide(5)"></span></div>
+            </div>
+            <div class="item" id="item2"><img width="70%" src="https://github.com/popoffices/popoffices.github.io/raw/master/code.png"></div>
+        </div>
+    </article>
+    <section class="section">
+        <p>
+            <h1>&nbsp;案例精选</h1>
+            <h3><b>OFFICES</b></h3>
+            <h1 style="float:right"><b>▼&nbsp;</b></h1></p>
+        <hr class="hr-text" data-content="OFFICES">
+        <div><img src="http://www.popoffices.com/design/app/005/1585/1585.jpg"><span>Wildcraft</span></div>
+        <div><img src="http://www.popoffices.com/design/app/005/1586/1586.jpg"><span>John Brown</span></div>
+        <div><img src="http://www.popoffices.com/design/app/005/1587/1587.jpg"><span>Putao</span></div>
+        <div><img src="http://www.popoffices.com/design/app/005/1588/1588.jpg"><span>Red Bull</span></div>
+        <div><img src="http://www.popoffices.com/design/app/005/1589/1589.jpg"><span>Intoo</span></div>
+        <div><img src="http://www.popoffices.com/design/app/005/1590/1590.jpg"><span>DOW</span></div>
+        <div><img src="http://www.popoffices.com/design/app/005/1591/1591.jpg"><span>Harris HMC</span></div>
+        <div><img src="http://www.popoffices.com/design/app/005/1592/1592.jpg"><span>LK+RIGI</span></div>
+        <div><img src="http://fakeimg.pl/400x400/424242/ffffff/?text=More&font=bebas"><span id="mb">OFFICES</span></div>
+        <div id="pc"><img src="http://fakeimg.pl/400x400/424242/ffffff/?text=OFFICES&font=bebas"></div>
+    </section>
+    <section class="partner">
+        <p>
+            <h1><b>&nbsp;友情链接</b></h1>
+            <h3><b>PARTNER</b></h3>
+            <h1 style="float:right"><b>▼&nbsp;</b></h1></p>
+        <hr class="hr-text" data-content="PARTNER">
+        <div> <a href="http://www.fortunechina.com/" target="_blank">《财富》</a> </div>
+        <div> <a href="http://www.ceconline.com" target="_blank">《世界经理人》</a> </div>
+        <div> <a href="http://shanghai.chineseoffice.com.cn/" target="_blank">中国写字楼网</a> </div>
+        <div> <a href="http://www.garnet.com.cn/" target="_blank">简诺空间设计</a> </div>
+        <div> <a href="http://www.visionunion.com" target="_blank">视觉同盟</a> </div>
+        <div> <a href="http://www.ciid.com.cn/" target="_blank">中国室内网</a> </div>
+        <div> <a href="http://www.ideamsg.com/" target="_blank">灵感日报</a> </div>
+        <div> <a href="http://www.far2000.com/" target="_blank">自由建筑报道</a> </div>
+        <div> <a href="http://www.id-china.com.cn/" target="_blank">《室内设计》中文</a> </div>
+        <div> <a href="http://www.Vartcn.com/" target="_blank">艺术中国网</a> </div>
+        <div> <a href="http://www.chinavisual.com/" target="_blank">视觉中国网</a> </div>
+        <div> <a href="http://www.arting365.com/" target="_blank">中国艺术设计联盟</a> </div>
+        <div> <a href="http://dolcn.com/" target="_blank">设计在线</a> </div>
+        <div> <a href="http://www.ionly.com.cn/" target="_blank">东方视觉</a> </div>
+        <div> <a href="http://www.china-designer.com/" target="_blank">建筑与室内设计师</a> </div>
+        <div> <a href="http://www.archi123.com/" target="_blank">知筑网</a> </div>
+        <div> <a href="http://www.interiordesign.net" target="_blank">interiordesign</a> </div>
+        <div> <a href="http://www.uapid.com/" target="_blank">设计联</a> </div>
+        <div> <a href="http://www.xiufun.com" target="_blank">修房网</a> </div>
+        <div> <a href="http://www.shanghai-da.com" target="_blank">上海创意设计工作者协会</a> </div>
+        <div> <a href="http://www.zcool.com.cn/" target="_blank">站酷ZCOOL</a> </div>
+        <div> <a href="http://www.51room.net" target="_blank">51房产网</a> </div>
+        <div> <a href="http://www.spider.com.cn" target="_blank">蜘蛛网</a> </div>
+        <div> <a href="http://www.haoyin.com" target="_blank">好印网</a> </div>
+        <br>
+    </section>
+    <br>
+    <section id="ad" class="partner">
+        <br>
+        <a href="http://pos.baidu.com/cclick.php?000000aLe7J1mHAetBMLeaLS4vvrjaNCPQhj8yAY0fuIKwsAoPwrugSezskKiMHcoshk2LeThqdbWim9w0_qPgM_sBkmyEugI5VXC-HgOkXEs3FSNIXUyQyRahYq.DR_auroKZzfTnXBra2ZHZKj7MJem2QnN1tYDpyuCpE5nSFnZ3neVXVt2TtzpjnvGPKSU5k-l7BmtI-hOxuELt_rrumuCyr1_3eqz60.mhwGujY0mLKGujYsn1wKf1wDn1f4fb7KnYR3PjD1PDPaPWc3njf3wDf3r0K3pg0qnH08nW03QWDzPz3YP0KLu7tkIZF9uARqrfKLu7tzIZF9uARqrH0k0AwEUy7GU-qhpgF1I7qYTh7buHYkP0KbUvd9py4xTvNWUv4bgLwzmyw-5HDYnjc0TAtqn6Ksm1Y3n100mv9VujYk0ZPWpAdb5H00TL0qnfK9uZfqnfKvpyw-UdqWpA78UhN_5H00IgP-T-qYXgK-5HD0TvNzIh-8udqYXgK-5H00ugfqn0KVm1Ys0A7bmvk9TLnqn0KYIHddnH6snWRvn6KYUHYkPjR1rHf30Zwb5HD3njcdPWc0IA7z5HD0TLPs5HD0IZws5HD0mvqVTAk-5H00ULnqn0KBTWYkn6K9uvRqn0KWIA_q0AwYTjYk0ZNzUjdCIZwsrBtETAqsUvuhpyP-Tz4WUvYE0ZIGuZwC5HTzr0KCuy-MpZfqrH00myw3gvFGu7qWTAYqnW0sn0KWpjYs0A7duA--UhP-gLwzmyw-5Hf3PsKMuy4bugFxpyfqn1Tv0Ad9TMFGmyI-gv-b5HnLPsK1IA7YpyPxTZFETANzIZbqn1Tdc1nLran1rHD0IARqPWmznjD0mLFW5Hn4PWDv0A" target="blank"><img width="100%" src="http://ubmcmm.baidustatic.com/media/v1/0f000DEffnRjcfesJj_ROs.jpg"></a>
+    </section>
+    <footer>
+        <div id="faatr">
+            <p>沪公网备</p>
+            <p>310107100039708</p>
+        </div>
+        <div id="feetm">
+            <p>Copyright © 2009-2016 Popoffices.com</p>
+            <p>All Rights Reserved 沪ICP备09044784号</p>
+        </div>
+        <div id="faatl">
+            <p>时尚办公网</p>
+            <p>www.popoffices.com</p>
+        </div>
+    </footer>
+</body>
+<script>
+    function mu() {
+        var x = document.getElementById("x");
+        var mu = document.getElementById("direction");
+        if (mu.className === "flex-container") {
+            mu.className += " column";
+            x.innerHTML = "X";
+        }
+        else {
+            mu.className = "flex-container";
+            x.innerHTML = "=";
+        }
+    }
 
-		function plusSlides(n) {
-			showSlides(slideIndex += n);
-		}
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
 
-		function currentSlide(n) {
-			showSlides(slideIndex = n);
-		}
-		var slideIndex = 1;
-		var t
-		var m = 0;
-		var ps = document.getElementById("ps");
-		showSlides(slideIndex);
-		autoSlides();
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+    var slideIndex = 1;
+    var t
+    var m = 0;
+    var ps = document.getElementById("ps");
+    showSlides(slideIndex);
+    autoSlides();
 
-		function autoSlides() {
-			slideIndex++;
-			t = setTimeout(autoSlides, 4000);
-			showSlides(slideIndex);
-		}
+    function autoSlides() {
+        slideIndex++;
+        t = setTimeout(autoSlides, 4000);
+        showSlides(slideIndex);
+    }
 
-		function showSlides(n) {
-			var i;
-			var slides = document.getElementsByClassName("mySlides");
-			var dots = document.getElementsByClassName("dot");
-			if(n > slides.length) {
-				slideIndex = 1
-			}
-			if(n < 1) {
-				slideIndex = slides.length
-			}
-			for(i = 0; i < slides.length; i++) {
-				slides[i].style.display = "none";
-			}
-			for(i = 0; i < dots.length; i++) {
-				dots[i].className = dots[i].className.replace(" active", "");
-			}
-			slides[slideIndex - 1].style.display = "block";
-			dots[slideIndex - 1].className += " active";
-		}
-		window.onload = function() {
-			var loader = document.getElementById("aside");
-			loader.className = "hide";
-		}
+    function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("dot");
+        if (n > slides.length) {
+            slideIndex = 1
+        }
+        if (n < 1) {
+            slideIndex = slides.length
+        }
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+    }
+    window.onload = function () {
+        var loader = document.getElementById("aside");
+        loader.className = "hide";
+    }
 
-		function openNav() {
-			document.getElementById("myNav").style.width = "100%";
-		}
+    function openNav() {
+        document.getElementById("myNav").style.width = "100%";
+    }
 
-		function closeNav() {
-			document.getElementById("myNav").style.width = "0%";
-		}
-	</script>
+    function closeNav() {
+        document.getElementById("myNav").style.width = "0%";
+    }
+</script>
 
 </html>
