@@ -544,13 +544,15 @@
                 padding-top: 3px;
                 padding-bottom: 3px;
             }
-            .flex-container li,
-            .flex-container a:last-child {
+            .flex-container [id*=m] {
                 display: block;
-                width: 33%;
                 text-align: center;
                 padding-top: 3px;
                 padding-bottom: 3px;
+            }
+            #m2,
+            #m0 {
+                width: 33%;
             }
             #m1 {
                 width: 34%;
@@ -612,7 +614,7 @@
     </header>
     <nav>
         <div class="flex-container" id="direction">
-            <li style="background-color:#ec407a" onclick="mu()">
+            <li id="m0" style="background-color:#ec407a" onclick="mu()">
                 <p id="x">=</p>
             </li>
             <a id="m1" style="background-color:#e91e63">
