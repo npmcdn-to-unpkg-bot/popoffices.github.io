@@ -544,23 +544,23 @@
                 padding-top: 3px;
                 padding-bottom: 3px;
             }
-            .flex-container [id*=m] {
+            .flex-container a,
+            .flex-container li{
                 display: block;
                 text-align: center;
                 padding-top: 3px;
                 padding-bottom: 3px;
             }
-            #m2,
-            #m0 {
+            .flex-container a {
                 width: 33%;
             }
-            #m1 {
+            .flex-container li {
                 width: 34%;
             }
-            .flex-container.column a {
+            .flex-container.column [id*=mu] {
                 display: none;
             }
-            .flex-container.column li {
+            .flex-container.column a {
                 width: 100%;
                 display: block;
                 padding-top: 3px;
@@ -586,10 +586,6 @@
                 flex: 0 0 100%;
                 background-color: #424242
             }
-            .flex-container li:hover .flex-container {
-                display: block;
-                margin-bottom: 5px;
-            }
             #dot {
                 display: none;
             }
@@ -614,13 +610,13 @@
     </header>
     <nav>
         <div class="flex-container" id="direction">
-            <li id="m0" style="background-color:#ec407a" onclick="mu()">
+            <a style="background-color:#ec407a" onclick="mu()">
                 <p id="x">=</p>
-            </li>
-            <a id="m1" style="background-color:#e91e63">
-                <p>POPOFFICES</p>
             </a>
-            <a id="m2" style="background-color:#d81b60" onclick="openNav()">
+            <li id="mu1" style="background-color:#e91e63">
+                <p>POPOFFICES</p>
+            </li>
+            <a id="mu2" style="background-color:#d81b60">
                 <p>i</p>
             </a>
             <div id="q" style="background-color:#e91e63">
