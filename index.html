@@ -229,7 +229,7 @@
             border: none;
             outline: none;
             transition: 0.4s;
-            font-size: 18x;
+            font-size: 20px;
         }
         /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
         
@@ -240,16 +240,16 @@
         /* Style the accordion panel. Note: hidden by default */
         
         button.accordion:after {
-            content: '\▼';
+            content: '\展开';
             /* Unicode character for "plus" sign (+) */
-            font-size: 18px;
+            font-size: 20px;
             color: #fafafa;
             float: right;
             margin-left: 5px;
         }
         
         button.accordion.active:after {
-            content: "\▲";
+            content: "\收回";
             /* Unicode character for "minus" sign (-) */
         }
         
