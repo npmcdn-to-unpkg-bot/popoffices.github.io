@@ -4,14 +4,12 @@
     <title></title>
 </head>
 <body>
-<iframe src="testfile.txt" id="kao"></iframe>
+<iframe src="testfile.txt" id="a"></iframe>
 <SCRIPT>
-function a() {
-  // alert();
-  kao.src = kao.src;
-  area.value = kao.document.body.innerText;
+var x = document.getElementById("a");
+var y = document.getElementById("b");
+y.innerHTML = x.contentDocument
 }
-setInterval(a,1000);
 </SCRIPT>
-<textarea id="area"></textarea>
+<div id="b"></div>
 </html>
