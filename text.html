@@ -3,13 +3,18 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <script src="https://cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
 </head>
 <body>
-<iframe src="textfile.md" style="border:none;" id="a"></iframe>
-<div id="b"></div>
+<div id="a"></div>
 </body>
 <script>
-    var x = document.getElementById("a").contentWindow;
-    document.getElementById("b").innerHTML = x.value;
+   $.ajax({
+type: "POST",
+url: "textfile.md",
+success: function(msg){
+$('#a').txt(msg);
+}
+});
 </script>
 </html>
