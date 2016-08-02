@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
 </head>
 <body>
-<iframe src="textfile.md" style="border:none;color:#FFFFFF;background:#424242;"></iframe>
+<iframe src="textfile.md" style="border:none;" id="a"></iframe>
+<div id="b"></div>
 </body>
+<script>
+    var x = document.getElementById("a").contentDocument;
+    document.getElementById("b").innerHTML = x;
+</script>
 </html>
