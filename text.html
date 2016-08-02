@@ -1,12 +1,17 @@
 <!DOCTYPE html> 
 <html>
 <head>
-    <title>Iframe标签显示目标网页的指定区域，方法1</title>
+    <title></title>
 </head>
 <body>
-<iframe id="b" src="textfile.txt"></iframe>
-<textarea id="a"></textarea>
-</body>
-var win = document.getElementById('b').contentWindow.document.body.innerText;
-document.getElementById("a").innerText = win
+<iframe src="testfile.txt" id="kao"></iframe>
+<SCRIPT>
+function a() {
+  // alert();
+  kao.src = kao.src;
+  area.value = kao.document.body.innerText;
+}
+setInterval(a,1000);
+</SCRIPT>
+<textarea id="area"></textarea>
 </html>
