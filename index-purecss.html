@@ -3,12 +3,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
+/* All */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
+input {
+  display: block;
+}
+/* Nav */
 nav div,
 nav div ul {
   width: 100%;
@@ -26,12 +30,8 @@ nav div ul {
   list-style-type: none;
 }
 
-nav div input {
-  display: none;
-}
-
 nav div label {
-  padding:12px 24px;
+  padding: 20px 24px;
   cursor: pointer;
   float: right;
   display: none;
@@ -39,16 +39,40 @@ nav div label {
 }
 
 nav div ul li {
-  padding: 12px 24px;
+  padding: 20px 24px;
   text-align: center;
   float: left;
   width: 25%;
 }
-
+/* Slide */
+section figure {
+  width:100%;
+}
+section figure div img {
+  width:80%;
+}
+section figure div label {
+  cursor: pointer;
+  margin:auto 0;
+  width:10%;
+}
+section figure input[id*="one"]:checked+ div {
+  display:block;
+}
+section figure input[id*="one"]:disabled+ div {
+  display:none;
+}
+section figure input[id*="two"]:checked+ div {
+  display:block;
+}
+section figure input[id*="two"]:disabled+ div {
+  display:none;
+}
 @media only screen and (max-width:760px) {
+  /* Nav */ 
   nav div ul li:not(:first-child) {display: none;}
   nav div label {
-    display: block;        
+    display: block;
     text-align: center;
   }
   nav div input:checked~ label {
@@ -75,7 +99,7 @@ nav div ul li {
 <body>
 <nav>
   <div>
-    <input type="checkbox" id="mu"/>
+    <input type="checkbox" id="mu" />
     <label for="mu"></label>
     <ul>
       <li><a>EINS</a></li>
@@ -85,5 +109,21 @@ nav div ul li {
     </ul>
   </div>
 </nav>
+<section>
+  <figure>
+    <input type="radio" name="img" id="img-one" checked />
+    <div>
+      <label for="img-two">PREV</label>
+      <img src="http://www.popoffices.com/design/app/005/1590/index2.jpg"></img>
+      <label for="img-two">NEXT</label>
+    </div>
+    <input type="radio" name="img" id="img-two" />
+    <div>
+      <label for="img-one">PREV</label>
+      <img src="http://www.popoffices.com/design/app/005/1591/index2.jpg"></img>
+      <label for="img-one">NEXT</label>
+    </div>
+  </figure>
+</section>
 </body>
 </html> 
