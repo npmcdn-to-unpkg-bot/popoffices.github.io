@@ -15,12 +15,24 @@
     95% { left: -300%; }
     100% { left: -400%; }
   }
+  body { margin: 0; } 
+  div#slider { overflow: hidden; }
+  div#slider figure img { width: 20%; float: left; }
+  div#slider figure { 
+    position: relative;
+    width: 500%;
+    margin: 0;
+    left: 0;
+    text-align: left;
+    font-size: 0;
+    animation: 30s slide infinite; 
+}
 </style>
 <nav>
   
 </nav>
 <section>
-  <figure style="animation: 30s slide infinite">
+  <figure>
       <img src="http://www.popoffices.com/design/app/005/1590/index2.jpg" alt>
       <img src="http://www.popoffices.com/design/app/005/1591/index2.jpg" alt>
       <img src="http://www.popoffices.com/design/app/005/1592/index2.jpg" alt>
