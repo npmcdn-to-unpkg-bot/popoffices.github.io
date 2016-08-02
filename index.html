@@ -231,17 +231,13 @@
             transition: 0.4s;
             font-size: 19px;
         }
-        /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
-        
         button.accordion.active,
         button.accordion:hover {
             background-color: #424242;
         }
-        /* Style the accordion panel. Note: hidden by default */
         
         button.accordion:after {
             content: '\展开';
-            /* Unicode character for "plus" sign (+) */
             font-size: 19px;
             color: #fafafa;
             float: right;
@@ -250,15 +246,12 @@
         
         button.accordion.active:after {
             content: "\收回";
-            /* Unicode character for "minus" sign (-) */
         }
         
         div.panel {
             background-color: white;
             display: none;
         }
-        /* The "show" class is added to the accordion panel when the user clicks on one of the buttons. This will show the panel content */
-        
         div.panel.show {
             display: block !important;
         }
@@ -268,6 +261,7 @@
         }
         
         footer {
+            clear:both;
             background: #424242;
             width: 100%;
             height: 100px;
