@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-/* All */
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title></title>
+		<style>
+			/* All */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 input {
-  display: block;
+  display: none;
 }
 /* Nav */
 nav div,
@@ -45,26 +48,24 @@ nav div ul li {
   width: 25%;
 }
 /* Slide */
-section figure {
+section ul li {
   width:100%;
 }
-section figure div {
+section ul li div {
   display:none;
 }
-section figure div img {
+section ul li div img {
   width:80%;
 }
-section figure div label {
+section ul li div label {
   cursor: pointer;
   margin:auto 0;
   width:10%;
 }
-input[type="radio"]:checked+ div {
+section ul li input[type="radio"]:checked~ div {
   display:block;
 }
-input[type="radio"]:disabled+ div {
-  display:none;
-}
+
 @media only screen and (max-width:760px) {
   /* Nav */ 
   nav div ul li:not(:first-child) {display: none;}
@@ -92,9 +93,11 @@ input[type="radio"]:disabled+ div {
     background: #ad1457;
   }
 }
-</style>
-<body>
-<nav>
+		</style>
+	</head>
+
+	<body>
+		<nav>
   <div>
     <input type="checkbox" id="mu" />
     <label for="mu"></label>
@@ -107,20 +110,25 @@ input[type="radio"]:disabled+ div {
   </div>
 </nav>
 <section>
-  <figure>
-    <input type="radio" name="img" id="img-one" checked />
-    <div>
-      <label for="img-two">PREV</label>
-      <img src="http://www.popoffices.com/design/app/005/1590/index2.jpg"></img>
-      <label for="img-two">NEXT</label>
-    </div>
-    <input type="radio" name="img" id="img-two" />
-    <div>
-      <label for="img-one">PREV</label>
-      <img src="http://www.popoffices.com/design/app/005/1591/index2.jpg"></img>
-      <label for="img-one">NEXT</label>
-    </div>
-  </figure>
+    <ul>
+      <li>
+        <input type="radio" name="img" id="img-one" checked />
+        <div>
+          <label for="img-two">PREV</label>
+          <img src="http://www.popoffices.com/design/app/005/1590/index2.jpg"></img>
+          <label for="img-two">NEXT</label>
+        </div>
+      </li>
+      <li>
+        <input type="radio" name="img" id="img-two" />
+        <div>
+          <label for="img-one">PREV</label>
+          <img src="http://www.popoffices.com/design/app/005/1591/index2.jpg"></img>
+          <label for="img-one">NEXT</label>
+        </div>
+      </li>
+    </ul>                             
 </section>
-</body>
-</html> 
+	</body>
+
+</html>
