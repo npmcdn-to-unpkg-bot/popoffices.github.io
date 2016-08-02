@@ -4,66 +4,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <body>
 <style>
-  @keyframes slide {
-    0% { left: 0%; }
-    20% { left: 0%; }
-    25% { left: -100%; }
-    45% { left: -100%; }
-    50% { left: -200%; }
-    70% { left: -200%; }
-    75% { left: -300%; }
-    95% { left: -300%; }
-    100% { left: -400%; }
-  }
-  body { margin: 0; } 
-  div#slider { overflow: hidden; }
-  div#slider figure img { width: 20%; float: left; }
-  div#slider figure { 
-    position: relative;
-    width: 500%;
-    margin: 0;
-    left: 0;
-    text-align: left;
-    font-size: 0;
-    animation: 30s slide infinite; 
-}
-</style>
-<nav>
-  
-</nav>
-<section>
-  <div id="slider">
-  <figure>
-      <img src="http://www.popoffices.com/design/app/005/1590/index2.jpg" alt>
-      <img src="http://www.popoffices.com/design/app/005/1591/index2.jpg" alt>
-      <img src="http://www.popoffices.com/design/app/005/1592/index2.jpg" alt>
-      <img src="http://www.popoffices.com/design/app/005/1593/index2.jpg" alt>
-      <img src="http://www.popoffices.com/design/app/005/1594/index2.jpg" alt>
-  </figure>
-  </div>
-</section>
-</body>
-</html><!DOCTYPE html>
-<html>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<body>
-<style>
-  @keyframes slide {
-    0% { left: 0%; }
-    20% { left: 0%; }
-    25% { left: -100%; }
-    45% { left: -100%; }
-    50% { left: -200%; }
-    70% { left: -200%; }
-    75% { left: -300%; }
-    95% { left: -300%; }
-    100% { left: -400%; }
-  }
+/* Body */
   body { 
     margin: 0;
     width:90%; 
   } 
+/* Slider */
+  @keyframes slide {
+    0% { left: 0%; }
+    20% { left: 0%; }
+    25% { left: -100%; }
+    45% { left: -100%; }
+    50% { left: -200%; }
+    70% { left: -200%; }
+    75% { left: -300%; }
+    95% { left: -300%; }
+    100% { left: -400%; }
+  }
   div#slider { overflow: hidden; }
   div#slider figure img { width: 20%; float: left; }
   div#slider figure { 
@@ -78,10 +35,53 @@
   div#slider:hover { 
   animation-play-state:paused; 
   }
+/* Navbar */
+  .navigation {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 0;
+  list-style: none;
+  background: #111;
+}
+  .nav-item {
+  /* non-critical appearance styles */
+  width: 200px;
+  border-top: 1px solid #111;
+  border-bottom: 1px solid #000;
+  }
+
+  .nav-item a {
+  /* non-critical appearance styles */
+  display: block;
+  padding: 1em;
+  background: linear-gradient(135deg, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%);
+  color: white;
+  font-size: 1.2em;
+  text-decoration: none;
+  transition: color 0.2s, background 0.5s;
+  }
+
+  .nav-item a:hover {
+  color: #c74438;
+  background: linear-gradient(135deg, rgba(0,0,0,0) 0%,rgba(75,20,20,0.65) 100%);
 }
 </style>
-<nav>
-  
+  <nav>
+    <ul class="navigation">
+	    <li class="nav-item"><a href="#">Home</a></li>
+    	<li class="nav-item"><a href="#">Portfolio</a></li>
+    	<li class="nav-item"><a href="#">About</a></li>
+    	<li class="nav-item"><a href="#">Blog</a></li>
+    	<li class="nav-item"><a href="#">Contact</a></li>
+    </ul>
+
+    <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+    <label for="nav-trigger"></label>
 </nav>
 <section>
   <div id="slider">
