@@ -4,84 +4,95 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <body>
 <style>
-  @keyframes slider {     
-  0% { left: 0; opacity: 0; }     
-  2% { opacity: 1; }     
-  20% { left: 0; opacity: 1; }     
-  21% { opacity: 0; }     
-  24% { opacity: 0; }     
-  25% { left: -768px; opacity: 1; }     
-  45% { left: -768px; opacity: 1; }     
-  46% { opacity: 0; }     
-  48% { opacity: 0; }     
-  50% { left: -1536px; opacity: 1; }     70% { left: -1536px; opacity: 1; }     72% { opacity: 0; }     
-  74% { opacity: 0; }    
-  75% { left: -2304px; opacity: 1; }   	
-  95% { left: -2304px; opacity: 1; }   	
-  97%  { left: -2304px; opacity: 0; }   	
-  100% { left: 0; opacity: 0; }
-} 
-
-body { width:90%; } 
-
-div#slidercontainer { 
-  position: relative; 
-  overflow: hidden; 
-}
-div#slidercontainer { 
-  width: 100%;
-}
-
-div#sider img { 
-  width: 100%;
-  float: left;
-}
-
-div#css3slider { 
-  position: absolute; 
-  width:500%;  
-  animation-name:slider;
-  animation-duration:15s;
-  animation-timing-function: ease-in-out;
-  animation-iteration-count:infinite;
-}
-
-div#css3slider:hover { 
-  animation-play-state:paused; }
-}
-
-div#css3slider img { 
-  float: right; 
-}
-
-div#slidercontainer:after { 
-  content: "❚❚"; 
-  font-size: 150px; 
-  position: absolute; 
-  z-index: 12; 
-  color: rgba(255,255,255, 0); 
-  left: 300px; top: 80px; 
-  transition: 1s all ease-in-out; 
-}
-
-div#slidercontainer:hover:after { 
-  color: rgba(255,255,255, 0.6);  
-}
+  @keyframes slide {
+    0% { left: 0%; }
+    20% { left: 0%; }
+    25% { left: -100%; }
+    45% { left: -100%; }
+    50% { left: -200%; }
+    70% { left: -200%; }
+    75% { left: -300%; }
+    95% { left: -300%; }
+    100% { left: -400%; }
+  }
+  body { margin: 0; } 
+  div#slider { overflow: hidden; }
+  div#slider figure img { width: 20%; float: left; }
+  div#slider figure { 
+    position: relative;
+    width: 500%;
+    margin: 0;
+    left: 0;
+    text-align: left;
+    font-size: 0;
+    animation: 30s slide infinite; 
 }
 </style>
 <nav>
   
 </nav>
 <section>
-  <div id="slidercontainer">
-  <div id="css3slider">
-    <img src="http://www.popoffices.com/design/app/005/1590/index2.jpg" alt>
-    <img src="http://www.popoffices.com/design/app/005/1591/index2.jpg" alt>
-    <img src="http://www.popoffices.com/design/app/005/1592/index3.jpg" alt>
-    <img src="http://www.popoffices.com/design/app/005/1593/index2.jpg" alt>
-    <img src="http://www.popoffices.com/design/app/005/1594/index2.jpg" alt>
+  <div id="slider">
+  <figure>
+      <img src="http://www.popoffices.com/design/app/005/1590/index2.jpg" alt>
+      <img src="http://www.popoffices.com/design/app/005/1591/index2.jpg" alt>
+      <img src="http://www.popoffices.com/design/app/005/1592/index2.jpg" alt>
+      <img src="http://www.popoffices.com/design/app/005/1593/index2.jpg" alt>
+      <img src="http://www.popoffices.com/design/app/005/1594/index2.jpg" alt>
+  </figure>
   </div>
-</div>
+</section>
+</body>
+</html><!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<body>
+<style>
+  @keyframes slide {
+    0% { left: 0%; }
+    20% { left: 0%; }
+    25% { left: -100%; }
+    45% { left: -100%; }
+    50% { left: -200%; }
+    70% { left: -200%; }
+    75% { left: -300%; }
+    95% { left: -300%; }
+    100% { left: -400%; }
+  }
+  body { 
+    margin: 0;
+    width:90%; 
+  } 
+  div#slider { overflow: hidden; }
+  div#slider figure img { width: 20%; float: left; }
+  div#slider figure { 
+    position: relative;
+    width: 500%;
+    margin: 0;
+    left: 0;
+    text-align: left;
+    font-size: 0;
+    animation: 30s slide infinite; 
+  }
+  div#slider:hover { 
+  animation-play-state:paused; 
+  }
+}
+</style>
+<nav>
+  
+</nav>
+<section>
+  <div id="slider">
+  <figure>
+      <img src="http://www.popoffices.com/design/app/005/1590/index2.jpg" alt>
+      <img src="http://www.popoffices.com/design/app/005/1591/index2.jpg" alt>
+      <img src="http://www.popoffices.com/design/app/005/1592/index2.jpg" alt>
+      <img src="http://www.popoffices.com/design/app/005/1593/index2.jpg" alt>
+      <img src="http://www.popoffices.com/design/app/005/1594/index2.jpg" alt>
+  </figure>
+  </div>
 </section>
 </body>
 </html>
