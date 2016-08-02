@@ -56,16 +56,16 @@ section figure div label {
   margin:auto 0;
   width:10%;
 }
-section figure input[id*="one"]:checked+ div {
+section figure input[id*="one"]:checked~ div:first-child {
   display:block;
 }
-section figure input[id*="one"]:disabled+ div {
+section figure input[id*="one"]:disabled~ div:not(:first-child) {
   display:none;
 }
-section figure input[id*="two"]:checked+ div {
+section figure input[id*="two"]:checked~ div:not(:first-child) {
   display:block;
 }
-section figure input[id*="two"]:disabled+ div {
+section figure input[id*="two"]:disabled~ div:first-child {
   display:none;
 }
 @media only screen and (max-width:760px) {
