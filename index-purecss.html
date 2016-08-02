@@ -3,241 +3,87 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-/* Body */
-  * {
-  box-sizing: border-box;
-  }
-  body { 
+* {
   margin: 0;
-  width:90%; 
-  } 
-/* Slider */
-  
-/* Navbar */
-  a {
-  text-decoration: none;
-  color: #333;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.header {
+nav div,
+nav div ul {
   width: 100%;
-  padding: 20px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  counter-reset: no;
-}
-.header__inner {
-  height: 50px;
-  background-color: #fff;
-  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.45);
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-flow: row nowrap;
-      -ms-flex-flow: row nowrap;
-          flex-flow: row nowrap;
 }
 
-.gnav {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-}
-.gnav__inner {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  -webkit-box-pack: end;
-  -webkit-justify-content: flex-end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-}
-.gnav__link {
-  border-left: dashed #ccc 1px;
-  font-size: 0.78rem;
-  text-transform: uppercase;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-basis: 110px;
-      -ms-flex-preferred-size: 110px;
-          flex-basis: 110px;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-.gnav__link:hover {
-  color: #cd5a65;
-}
-
-@media (max-width: 757px) {
-  .gnav__link {
-    display: none;
-  }
-  .gnav .dropdown__link {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-  }
-}
-.dropdown {
-  position: relative;
-  background-color: #cd5a65;
-  margin-left: 40px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-basis: 70px;
-      -ms-flex-preferred-size: 70px;
-          flex-basis: 70px;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-.dropdown:before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  right: 10px;
-  width: 28px;
-  height: 25px;
-  background-image: -webkit-linear-gradient(90deg, transparent, 30%, #fff 30%, #fff 70%, transparent 70%);
-  background-image: linear-gradient(0deg, transparent, 30%, #fff 30%, #fff 70%, transparent 70%);
-  background-size: 100% 33.33%;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
-}
-.dropdown:after {
-  content: counter(no);
-  position: absolute;
-  left: 0;
-  top: 50%;
-  width: 40px;
-  height: 40px;
-  background-color: #cd5a65;
-  border-radius: 50%;
+nav div {
   color: #fff;
-  border: 3px solid #fff;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
-  -webkit-transform: scale(1) translate(-50%, -50%);
-          transform: scale(1) translate(-50%, -50%);
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-.dropdown:hover:after {
-  -webkit-transform: scale(1.05) translate(-50%, -50%);
-          transform: scale(1.05) translate(-50%, -50%);
-  background-color: #c74653;
-}
-.dropdown:hover .dropdown__inner {
-  visibility: visible;
-}
-.dropdown__inner {
-  position: absolute;
-  right: 0;
-  top: 50px;
-  width: 110px;
-  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.45);
-  background-color: #fff;
-  visibility: hidden;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-flow: column nowrap;
-      -ms-flex-flow: column nowrap;
-          flex-flow: column nowrap;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-.dropdown__link {
-  width: 100%;
-  height: 50px;
-  font-size: 0.78rem;
-  text-transform: uppercase;
-  border-top: dashed #cfcfcf 1px;
-  counter-increment: no;
-  display: none;
-  text-decoration: none;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-.dropdown__link:hover {
-  color: #cd5a65;
+  background: #e91e63;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
 }
 
-.logo {
-  color: #cd5a65;
-  font-weight: bold;
-  padding-left: 1rem;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-basis: 150px;
-      -ms-flex-preferred-size: 150px;
-          flex-basis: 150px;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
+nav div ul {
+  list-style-type: none;
+}
+
+nav div input {
+  display: none;
+}
+
+nav div label {
+  padding: 24px;
+  cursor: pointer;
+  float: right;
+  display: none;
+  width: 25%;
+}
+
+nav div ul li {
+  padding: 24px;
+  text-align: center;
+  float: left;
+  width: 25%;
+}
+
+@media only screen and (max-width:760px) {
+  nav div ul li:not(:first-child) {display: none;}
+  nav div label {
+    display: block;        
+    text-align: center;
+  }
+  nav div input:checked~ label {
+    width: 100%;
+  }
+  nav div input:checked~ ul li {
+    display: block;
+    width: 100%;
+  }
+  nav div input~ label:after {
+    content: "MENU";
+  }
+  nav div input:checked~ label:after {
+    content: "CLOSE";
+  }
+  nav div input:checked~ ul li:first-child {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  }
+  nav div input:checked~ ul li:not(:first-child) {
+    background: #ad1457;
+  }
 }
 </style>
 <body>
-<header class="header">
-  <div class="header__inner"><a href="#" class="logo">TITLELOGO</a>
-    <nav class="gnav">
-      <div class="gnav__inner"><a href="#" class="gnav__link">Home</a><a href="#" class="gnav__link">Service</a><a href="#" class="gnav__link">Portfolio</a><a href="#" class="gnav__link">Contact</a><a href="#" class="gnav__link">Support</a><a href="#" class="gnav__link">Link</a></div>
-      <div class="dropdown">
-        <div class="dropdown__inner"><a href="#" class="dropdown__link">Home</a><a href="#" class="dropdown__link">Service</a><a href="#" class="dropdown__link">Portfolio</a><a href="#" class="dropdown__link">Contact</a><a href="#" class="dropdown__link">Support</a><a href="#" class="dropdown__link">Link</a></div>
-      </div>
-    </nav>
+<nav>
+  <div>
+    <input type="checkbox" id="mu"/>
+    <label for="mu"></label>
+    <ul>
+      <li><a>EINS</a></li>
+      <li><a>ZWEI</a></li>
+      <li><a>DREI</a></li>
+      <li><a>VIER</a></li>
+    </ul>
   </div>
-</header>
-<section>
-</section>
+</nav>
 </body>
-</html>
+</html> 
