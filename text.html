@@ -9,12 +9,6 @@
 <div id="a"></div>
 </body>
 <script>
-   $.ajax({
-type: "POST",
-url: "textfile.md",
-success: function(msg){
-$('#a').txt(msg);
-}
-});
+   $.ajax({url: "textfile.md",success: function(msg){$('#a').txt(msg);}});
 </script>
 </html>
