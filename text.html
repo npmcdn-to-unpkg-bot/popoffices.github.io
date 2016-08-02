@@ -4,8 +4,9 @@
     <title>Iframe标签显示目标网页的指定区域，方法1</title>
 </head>
 <body>
-<div align="center">
-<iframe style="background:#424242;color:#fff;" src="textfile.txt"></iframe> 
-</div>
+<iframe id="b" src="textfile.txt"></iframe>
+<textarea id="a"></textarea>
 </body>
+var win = document.getElementById('b').contentWindow.document.body.innerText;
+document.getElementById("a").innerText = win
 </html>
