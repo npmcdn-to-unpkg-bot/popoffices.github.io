@@ -56,7 +56,7 @@
             width: 100%;
             margin: 0;
             padding: 0;
-            color: #fff;
+            overflow: hidden;
         }
         
         section div div {
@@ -65,20 +65,45 @@
             padding: 0;
         }
         
-        section div div img {
+        section div div a {
             margin: 0;
             padding: 0;
-            width: 80%;
+            width: 100%;
             float: left;
+        }
+        
+        section div div a p {
+            text-align: center;
+            position: absolute;
+            top: calc(80% - 20px);
+            left: 0;
+            width: 100%;
+            background-color: #424242;
+            color: #fff;
+            padding: 20px 0;
+        }
+        
+        section div div a img {
+            width: 100%;
         }
         
         section div div label {
             cursor: pointer;
-            float: left;
             width: 10%;
             text-align: center;
             background: #424242;
             padding: 20px 0;
+            color: #fff;
+            position: absolute;
+            top: calc(50% - 40px);
+        }
+        
+        section div div label:first-child {
+            right: 0;
+        }
+        
+        section div div label:last-child {
+            left: 0;
         }
         
         section div input[type="radio"]:checked~ div {
@@ -87,7 +112,7 @@
         
         @media only screen and (max-width:760px) {
             /* Nav */
-            nav div ul li:not(: first-child) {
+            nav div ul li:not(:first-child) {
                 display: none;
             }
             nav div label {
@@ -134,34 +159,31 @@
         <div>
             <input type="radio" name="img" id="img-one" checked />
             <div>
-                <label for="img-thr"> <h2>PREV</h2>
-                    <h4>刘恺+RIGI 睿集设计办公空间欣赏</h4>
-                </label> <img src="http://www.popoffices.com/design/app/005/1590/index2.jpg"></img>
-                <label for="img-two"> <h2>NEXT</h2>
-                    <h4>酷炫工业风 墨尔本Harris HMC建筑公司办公设计欣赏</h4>
-                </label>
+                <label for="img-thr">PREV</label>
+                <label for="img-two">NEXT</label>
+                <a> <img src="http://www.popoffices.com/design/app/005/1590/index2.jpg"></img>
+                    <p> 动感曲线 Dow化学公司墨西哥办公设计欣赏 </p>
+                </a>
             </div>
         </div>
         <div>
             <input type="radio" name="img" id="img-two" />
             <div>
-                <label for="img-one"> <h2>PREV</h2>
-                    <h4>动感曲线 Dow化学公司墨西哥办公设计欣赏</h4>
-                </label> <img src="http://www.popoffices.com/design/app/005/1591/index2.jpg"></img>
-                <label for="img-thr"> <h2>NEXT</h2>
-                    <h4>刘恺+RIGI 睿集设计办公空间欣赏</h4>
-                </label>
+                <label for="img-one">PREV</label>
+                <label for="img-thr">NEXT</label>
+                <a> <img src="http://www.popoffices.com/design/app/005/1591/index2.jpg"></img>
+                    <p>酷炫工业风 墨尔本Harris HMC建筑公司办公设计欣赏</p>
+                </a>
             </div>
         </div>
         <div>
             <input type="radio" name="img" id="img-thr" checked />
             <div>
-                <label for="img-two"> <h2>PREV</h2>
-                    <h4>酷炫工业风 墨尔本Harris HMC建筑公司办公设计欣赏</h4>
-                </label> <img src="http://www.popoffices.com/design/app/005/1592/index2.jpg"></img>
-                <label for="img-one"> <h2>NEXT</h2>
-                    <h4>动感曲线 Dow化学公司墨西哥办公设计欣赏</h4>
-                </label>
+                <label for="img-two">PREV</label>
+                <label for="img-one">NEXT</label>
+                <a> <img src="http://www.popoffices.com/design/app/005/1592/index2.jpg"></img>
+                    <p>刘恺+RIGI 睿集设计办公空间欣赏</p>
+                </a>
             </div>
         </div>
     </section>
