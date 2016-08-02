@@ -1,142 +1,170 @@
 <!DOCTYPE html>
 <html>
 
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title></title>
-		<style>
-			/* All */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-input {
-  display: none;
-}
-/* Nav */
-nav div,
-nav div ul {
-  width: 100%;
-}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        /* All */
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        input {
+            display: none;
+        }
+        /* Nav */
+        
+        nav div,
+        nav div ul {
+            width: 100%;
+        }
+        
+        nav div {
+            color: #fff;
+            background: #e91e63;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        
+        nav div ul {
+            list-style-type: none;
+        }
+        
+        nav div label {
+            padding: 20px 24px;
+            cursor: pointer;
+            float: right;
+            display: none;
+            width: 25%;
+        }
+        
+        nav div ul li {
+            padding: 20px 24px;
+            text-align: center;
+            float: left;
+            width: 25%;
+        }
+        /* Slide */
+        
+        section div {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            color: #fff;
+        }
+        
+        section div div {
+            display: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        section div div img {
+            margin: 0;
+            padding: 0;
+            width: 80%;
+            float: left;
+        }
+        
+        section div div label {
+            cursor: pointer;
+            float: left;
+            width: 10%;
+            text-align: center;
+            background: #424242;
+            padding: 20px 0;
+        }
+        
+        section div input[type="radio"]:checked~ div {
+            display: block;
+        }
+        
+        @media only screen and (max-width:760px) {
+            /* Nav */
+            nav div ul li:not(: first-child) {
+                display: none;
+            }
+            nav div label {
+                display: block;
+                text-align: center;
+            }
+            nav div input:checked~ label {
+                width: 100%;
+            }
+            nav div input:checked~ ul li {
+                display: block;
+                width: 100%;
+            }
+            nav div input~ label:after {
+                content: "MENU";
+            }
+            nav div input:checked~ label:after {
+                content: "CLOSE";
+            }
+            nav div input:checked~ ul li:first-child {
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            }
+            nav div input:checked~ ul li:not(:first-child) {
+                background: #ad1457;
+            }
+        }
+    </style>
+</head>
 
-nav div {
-  color: #fff;
-  background: #e91e63;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-}
-
-nav div ul {
-  list-style-type: none;
-}
-
-nav div label {
-  padding: 20px 24px;
-  cursor: pointer;
-  float: right;
-  display: none;
-  width: 25%;
-}
-
-nav div ul li {
-  padding: 20px 24px;
-  text-align: center;
-  float: left;
-  width: 25%;
-}
-/* Slide */
-section ul li {
-  width:100%;
-}
-section ul li div {
-  display:none;
-}
-section ul li div img {
-  width:80%;
-}
-section ul li div label {
-  cursor: pointer;
-  margin:auto 0;
-  width:10%;
-}
-section ul li input[type="radio"]:checked~ div {
-  display:block;
-}
-
-@media only screen and (max-width:760px) {
-  /* Nav */ 
-  nav div ul li:not(:first-child) {display: none;}
-  nav div label {
-    display: block;
-    text-align: center;
-  }
-  nav div input:checked~ label {
-    width: 100%;
-  }
-  nav div input:checked~ ul li {
-    display: block;
-    width: 100%;
-  }
-  nav div input~ label:after {
-    content: "MENU";
-  }
-  nav div input:checked~ label:after {
-    content: "CLOSE";
-  }
-  nav div input:checked~ ul li:first-child {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  }
-  nav div input:checked~ ul li:not(:first-child) {
-    background: #ad1457;
-  }
-}
-		</style>
-	</head>
-
-	<body>
-		<nav>
-  <div>
-    <input type="checkbox" id="mu" />
-    <label for="mu"></label>
-    <ul>
-      <li><a>EINS</a></li>
-      <li><a>ZWEI</a></li>
-      <li><a>DREI</a></li>
-      <li><a>VIER</a></li>
-    </ul>
-  </div>
-</nav>
-<section>
-    <ul>
-      <li>
-        <input type="radio" name="img" id="img-one" checked />
+<body>
+    <nav>
         <div>
-          <label for="img-thr">PREV</label>
-          <img src="http://www.popoffices.com/design/app/005/1590/index2.jpg"></img>
-          <label for="img-two">NEXT</label>
+            <input type="checkbox" id="mu" />
+            <label for="mu"></label>
+            <ul>
+                <li><a>EINS</a></li>
+                <li><a>ZWEI</a></li>
+                <li><a>DREI</a></li>
+                <li><a>VIER</a></li>
+            </ul>
         </div>
-      </li>
-      <li>
-        <input type="radio" name="img" id="img-two" />
+    </nav>
+    <section>
         <div>
-          <label for="img-one">PREV</label>
-          <img src="http://www.popoffices.com/design/app/005/1591/index2.jpg"></img>
-          <label for="img-two">NEXT</label>
+            <input type="radio" name="img" id="img-one" checked />
+            <div>
+                <label for="img-thr"> <h2>PREV</h2>
+                    <h4>刘恺+RIGI 睿集设计办公空间欣赏</h4>
+                </label> <img src="http://www.popoffices.com/design/app/005/1590/index2.jpg"></img>
+                <label for="img-two"> <h2>NEXT</h2>
+                    <h4>酷炫工业风 墨尔本Harris HMC建筑公司办公设计欣赏</h4>
+                </label>
+            </div>
         </div>
-      </li>
-      <li>
-        <input type="radio" name="img" id="img-thr" checked />
         <div>
-          <label for="img-two">PREV</label>
-          <img src="http://www.popoffices.com/design/app/005/1592/index2.jpg"></img>
-          <label for="img-one">NEXT</label>
+            <input type="radio" name="img" id="img-two" />
+            <div>
+                <label for="img-one"> <h2>PREV</h2>
+                    <h4>动感曲线 Dow化学公司墨西哥办公设计欣赏</h4>
+                </label> <img src="http://www.popoffices.com/design/app/005/1591/index2.jpg"></img>
+                <label for="img-thr"> <h2>NEXT</h2>
+                    <h4>刘恺+RIGI 睿集设计办公空间欣赏</h4>
+                </label>
+            </div>
         </div>
-      </li>
-    </ul>                             
-</section>
-	</body>
+        <div>
+            <input type="radio" name="img" id="img-thr" checked />
+            <div>
+                <label for="img-two"> <h2>PREV</h2>
+                    <h4>酷炫工业风 墨尔本Harris HMC建筑公司办公设计欣赏</h4>
+                </label> <img src="http://www.popoffices.com/design/app/005/1592/index2.jpg"></img>
+                <label for="img-one"> <h2>NEXT</h2>
+                    <h4>动感曲线 Dow化学公司墨西哥办公设计欣赏</h4>
+                </label>
+            </div>
+        </div>
+    </section>
+</body>
 
 </html>
