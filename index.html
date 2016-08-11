@@ -389,8 +389,8 @@ article {
 article figure {
     margin: 0;
     -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
     -webkit-flex-direction: column;
-    -moz-box-orient: vertical;
     -ms-flex-direction: column;
     flex-direction: column;
     width: 100%
@@ -399,7 +399,6 @@ article figure {
 article figure,article figure #T1,article figure #T2,article figure #T3,article figure div {
     display: -webkit-box;
     display: -webkit-flex;
-    display: -moz-box;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-direction: normal;
@@ -424,18 +423,18 @@ article figure div {
     background-position: center;
     height: 30vw;
     -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
     -webkit-flex-direction: row;
-    -moz-box-orient: horizontal;
     -ms-flex-direction: row;
-    flex-direction: row
+    flex-direction: row;
 }
 
 article figure #T1,article figure #T2,article figure #T3 {
     -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
     -webkit-flex-direction: column;
-    -moz-box-orient: vertical;
     -ms-flex-direction: column;
-    flex-direction: column
+    flex-direction: column;
 }
 
 article figure #T1 a,article figure #T2 a,article figure #T3 a {
@@ -486,7 +485,6 @@ content,content div {
     text-align: center;
     display: -webkit-box;
     display: -webkit-flex;
-    display: -moz-box;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-direction: normal;
@@ -497,10 +495,10 @@ content {
     color: #424242;
     background: #e0e0e0;
     -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
     -webkit-flex-direction: column;
-    -moz-box-orient: vertical;
     -ms-flex-direction: column;
-    flex-direction: column
+    flex-direction: column;
 }
 
 content img {
@@ -524,8 +522,8 @@ content strong h1 span {
 
 content div {
     -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
     -webkit-flex-direction: row;
-    -moz-box-orient: horizontal;
     -ms-flex-direction: row;
     flex-direction: row;
     -webkit-box-pack: center;
@@ -601,16 +599,14 @@ content div a:nth-of-type(3) {
         -webkit-box-orient: horizontal;
         -webkit-box-direction: normal;
         -webkit-flex-direction: row;
-        -moz-box-orient: horizontal;
-        -moz-box-direction: normal;
         -ms-flex-direction: row;
-        flex-direction: row
+        flex-direction: row;
     }
 
     article figure div {
         -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
         -webkit-flex-direction: column;
-        -moz-box-orient: vertical;
         -ms-flex-direction: column;
         flex-direction: column;
         font-size: .7rem;
