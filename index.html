@@ -506,7 +506,17 @@ content img {
     width: 60%;
     max-width: 400px
 }
-
+content strong {
+    width: auto;
+    height: 0;
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    -webkit-flex-shrink: 1;
+    -ms-flex-negative: 1;
+    flex-shrink: 1;
+}
 content strong h1 {
     color: #fafafa;
     margin: 3rem 2rem;
@@ -521,6 +531,15 @@ content strong h1 span {
 }
 
 content div {
+    width: auto;
+    height: 0;
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    -webkit-flex-shrink: 1;
+    -ms-flex-negative: 1;
+    flex-shrink: 1;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
     -webkit-flex-direction: row;
@@ -535,6 +554,8 @@ content div {
 }
 
 content div a {
+    width: auto;
+    height: 0;
     -webkit-box-flex: 1;
     -webkit-flex-grow: 1;
     -ms-flex-positive: 1;
