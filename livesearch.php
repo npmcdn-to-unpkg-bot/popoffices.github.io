@@ -1,6 +1,6 @@
 <?php
 $xmlDoc=new DOMDocument();
-$xmlDoc->load("links.xml");
+$xmlDoc->load("https://raw.githubusercontent.com/popoffices/popoffices.github.io/master/links.xml");
 
 $x=$xmlDoc->getElementsByTagName('link');
 
