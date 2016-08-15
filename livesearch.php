@@ -3,7 +3,7 @@
 <body>
 <?php
 $xmlDoc=new DOMDocument();
-$xmlDoc->load("https://raw.githubusercontent.com/popoffices/popoffices.github.io/master/links.xml");
+$xmlDoc->load("links.xml");
 
 $x=$xmlDoc->getElementsByTagName('link');
 
