@@ -1,3 +1,6 @@
+<!DOCTYPE html>
+<html>
+<body>
 <?php
 $xmlDoc=new DOMDocument();
 $xmlDoc->load("https://raw.githubusercontent.com/popoffices/popoffices.github.io/master/links.xml");
@@ -43,3 +46,5 @@ if ($hint=="") {
 //output the response
 echo $response;
 ?>
+</body>
+</html>
