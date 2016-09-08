@@ -16,7 +16,7 @@ function loadDoc() {
     txt = "";
     x = xmlDoc.getElementsByTagName("image");
     y = xmlDoc.getElementsByTagName("p");
-    if (z = x.length) {
+    if (z > x.length) {
     document.getElementById("button").innerHTML = "没有更多";
     document.getElementById("button").onclick="alert('最后一页！')";
     }
