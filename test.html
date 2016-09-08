@@ -18,7 +18,7 @@ function loadDoc() {
     y = xmlDoc.getElementsByTagName("p");
     if (z == x.length) {
     document.getElementById("button").innerHTML = "没有更多";
-    document.getElementById("button").onclick="alert("I am an alert box!!")";
+    document.getElementById("button").onclick="alert('I am an alert box!!')";
     }
     for (;i < z;i++) {
       txt = txt + "<div><img src='" + x[i].childNodes[0].nodeValue + "'/><h5>" + y[i].childNodes[0].nodeValue + "</h5></div><br>";
