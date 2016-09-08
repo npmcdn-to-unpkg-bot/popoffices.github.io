@@ -14,11 +14,13 @@ var z = 5;
 var i = 0;
 $(document).ready(function() { 
   loadDoc();
+}); 
+$(window).load(function(){
   $('.grid').masonry({
     itemSelector: '.grid-item',
     columnWidth: 200
   });
-}); 
+});
 function loadDoc() {
   var xhttp, xmlDoc;
   xhttp = new XMLHttpRequest();
