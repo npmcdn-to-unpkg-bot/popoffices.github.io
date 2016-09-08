@@ -16,14 +16,14 @@ function loadDoc() {
     txt = "";
     x = xmlDoc.getElementsByTagName("image");
     y = xmlDoc.getElementsByTagName("p");
+    if (z == x.length) {
+    document.getElementById("button").innerHTML == "没有更多";
+    }
     for (;i < z;i++) {
       txt = txt + "<div><img src='" + x[i].childNodes[0].nodeValue + "'/><h5>" + y[i].childNodes[0].nodeValue + "</h5></div><br>";
     }
     z += 5;
     document.getElementById("demo").innerHTML += txt;
-    if (z == x.length) {
-    document.getElementById("button").innerHTML == "没有更多";
-    }
     }
   };
   xhttp.open("GET", "pin.xml", true);
