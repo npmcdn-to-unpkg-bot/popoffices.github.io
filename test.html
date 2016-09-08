@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html>
+<body>
+<h2 id="z"></h2>
+<h2 id="i"></h2>
+<button type="button" onclick="loadDoc()">更多</button>
+<p id="demo"></p>
+<script>
+var z = 5;
+var i = 0;
+function loadDoc() {
+  var xhttp, xmlDoc, txt, x;
+  xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+  if (this.readyState == 4 && this.status == 200) {
+    xmlDoc = this.responseXML;
+    txt = "";
+    x = xmlDoc.getElementsByTagName("image");
+	y = xmlDoc.getElementsByTagName("p");
+    for (;i < z;i++) {
+      txt = txt + '<div><img src=' + x[i].childNodes[0].nodeValue + '</div><br>';
+    }
+    z += 5;
+    document.getElementById("demo").innerHTML += txt;
+    document.getElementById("z").innerHTML = z;
+    document.getElementById("i").innerHTML = i;
+    }
+  };
+  xhttp.open("GET", "https://raw.githubusercontent.com/popoffices/popoffices.github.io/master/pin.xml", true);
+  xhttp.send();
+}
+</script>
+
+</body>
+</html>
