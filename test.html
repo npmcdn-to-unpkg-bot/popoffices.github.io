@@ -38,11 +38,13 @@ function loadDoc() {
     z += 5;
     document.getElementById("container").innerHTML += txt;
     }
-    $('.grid').masonry({
-      itemSelector: ".grid__item",
-      columnWidth: ".grid__sizer",
-      gutter: 15,
-      percentPosition: true
+    $('#container').masonry({
+      // initialize Masonry
+      var $container = $('#container').masonry();
+      // layout Masonry again after all images have loaded
+      $container.imagesLoaded( function() {
+        $container.masonry();
+      });
     });
   };
   xhttp.open("GET", "pin.xml", true);
