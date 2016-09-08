@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
+<script src="https://unpkg.com/masonry-layout@4.1/dist/masonry.pkgd.min.js"></script>
 <html>
 <body style="text-align:center;">
-<div id="demo"></div>
+<div class="grid" id="demo"></div>
 <a id="button" onclick="loadDoc()">更多</a>
 <script>
 var z = 5;
@@ -21,8 +22,14 @@ function loadDoc() {
     document.getElementById("button").onclick = "";
     }
     for (;i < z;i++) {
-      txt = txt + "<div><img src='" + x[i].childNodes[0].nodeValue + "'/><h5>" + y[i].childNodes[0].nodeValue + "</h5></div><br>";
+      txt = txt + "<div class="grid-item"><img src='" + x[i].childNodes[0].nodeValue + "'/><h5>" + y[i].childNodes[0].nodeValue + "</h5></div><br>";
     }
+    var grid = document.querySelector('.grid');
+    var msnry = new Masonry( grid, {
+      // options...
+     itemSelector: '.grid-item',
+     columnWidth: 200
+    });
     z += 5;
     document.getElementById("demo").innerHTML += txt;
     }
