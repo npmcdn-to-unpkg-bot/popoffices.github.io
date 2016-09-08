@@ -12,20 +12,18 @@
 <script>
 var z = 5;
 var i = 0;
-var txt = "";
-var x = xmlDoc.getElementsByTagName("image");
-var y = xmlDoc.getElementsByTagName("p");
-for (;i < z;i++) {
-  txt = txt + "<div class='grid-item'><img src='" + x[i].childNodes[0].nodeValue + "'/><h5>" + y[i].childNodes[0].nodeValue + "</h5></div>";
-}
-z += 5;
-document.getElementById("demo").innerHTML += txt;
+window.onload = function() { 
+  loadDoc();
+}; 
 $grid.masonry({
   itemSelector: '.grid-item',
   columnWidth: 200
 });
 function loadDoc() {
   var xhttp, xmlDoc;
+  var txt = "";
+  var x = xmlDoc.getElementsByTagName("image");
+  var y = xmlDoc.getElementsByTagName("p");
   xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
   if (this.readyState == 4 && this.status == 200) {
