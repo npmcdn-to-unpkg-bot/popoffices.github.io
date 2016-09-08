@@ -13,6 +13,8 @@
 var z = 5;
 var i = 0;
 var txt = "";
+var x = xmlDoc.getElementsByTagName("image");
+var y = xmlDoc.getElementsByTagName("p");
 for (;i < z;i++) {
   txt = txt + "<div class='grid-item'><img src='" + x[i].childNodes[0].nodeValue + "'/><h5>" + y[i].childNodes[0].nodeValue + "</h5></div>";
 }
@@ -23,14 +25,11 @@ $grid.masonry({
   columnWidth: 200
 });
 function loadDoc() {
-  var xhttp, xmlDoc, txt, x, y;
+  var xhttp, xmlDoc;
   xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
   if (this.readyState == 4 && this.status == 200) {
     xmlDoc = this.responseXML;
-    txt = "";
-    x = xmlDoc.getElementsByTagName("image");
-    y = xmlDoc.getElementsByTagName("p");
     if (z == x.length) {
     document.getElementById("button").innerHTML = "没有更多";
     document.getElementById("button").onclick = "";
