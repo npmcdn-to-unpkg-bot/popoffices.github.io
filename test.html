@@ -12,15 +12,17 @@
 <script>
 var z = 5;
 var i = 0;
-$(document).ready(function() { 
-  loadDoc();
-}); 
-$(window).load(function(){
-  $('.grid').masonry({
-    itemSelector: '.grid-item',
-    columnWidth: 200
-  });
-});
+loadDoc();
+(function($){
+   var $grid = $('.waterfall');
+   $grid.masonry({
+        itemSelector: '.block--artwork',
+        // columnWidth: '.grid-sizer',
+        gutter: 32,
+        percentPosition: true,
+        isFitWidth: false
+    });
+})(jQuery);
 function loadDoc() {
   var xhttp, xmlDoc;
   xhttp = new XMLHttpRequest();
