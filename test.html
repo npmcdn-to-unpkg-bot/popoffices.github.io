@@ -7,7 +7,7 @@
   .grid-item {width: 200px}
 </style>
 <body>
-<div class="grid"></div>
+<div class="grid" id="demo"></div>
 <a id="button" onclick="loadDoc()">更多</a>
 <script>
 var z = 5;
@@ -34,7 +34,7 @@ function loadDoc() {
       columnWidth: 200
     });
     z += 5;
-    document.getElementsByClassName("grid").innerHTML += txt;
+    document.getElementById("demo").innerHTML += txt;
     }
   };
   xhttp.open("GET", "pin.xml", true);
