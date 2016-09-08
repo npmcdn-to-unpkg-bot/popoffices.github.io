@@ -22,7 +22,7 @@ function loadDoc() {
     document.getElementById("button").onclick = "";
     }
     for (;i < z;i++) {
-      txt = txt + "<div class="grid-item"><img src='" + x[i].childNodes[0].nodeValue + "'/><h5>" + y[i].childNodes[0].nodeValue + "</h5></div><br>";
+      txt = txt + "<div class='grid-item'><img src='" + x[i].childNodes[0].nodeValue + "'/><h5>" + y[i].childNodes[0].nodeValue + "</h5></div><br>";
     }
     var grid = document.querySelector('.grid');
     var msnry = new Masonry( grid, {
