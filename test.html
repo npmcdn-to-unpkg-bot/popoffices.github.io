@@ -4,19 +4,18 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/minigrid/1.6.5/minigrid.min.js"></script>
 <html>
 <body style="width:100%;">
-<div id="container" style="position: relative;"></div>
+<div id="container" id="cards" style="position: relative;"></div>
 <a id="button" onclick="loadDoc()">更多</a>
 <script>
 loadDoc();
 var z = 5;
 var i = 0;
-(function(){
-        minigrid('#container', '.grid-item');
-   
-        window.addEventListener('resize', function(){
-          minigrid('#container', '.grid-item');
-        });
-      })();
+var grid = new Minigrid({
+  container: '.cards',
+  item: '.card',
+  gutter: 6
+});
+grid.mount();
 function loadDoc() {
   var xhttp, xmlDoc;
   xhttp = new XMLHttpRequest();
@@ -31,7 +30,7 @@ function loadDoc() {
     document.getElementById("button").onclick = "";
     }
     for (;i < z;i++) {
-      txt = txt + "<div style='width:200px;position: absolute;top: 0;left: 0; '><img style='width:100%;' src='" + x[i].childNodes[0].nodeValue + "'/><h5>" + y[i].childNodes[0].nodeValue + "</h5></div>";
+      txt = txt + "<div class="card" style='width:200px;position: absolute;top: 0;left: 0; '><img style='width:100%;' src='" + x[i].childNodes[0].nodeValue + "'/><h5>" + y[i].childNodes[0].nodeValue + "</h5></div>";
     }
     z += 5;
     document.getElementById("container").innerHTML += txt;
