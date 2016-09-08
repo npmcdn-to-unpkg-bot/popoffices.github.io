@@ -39,8 +39,6 @@ function loadDoc() {
     document.getElementById("container").innerHTML += txt;
     }
     $('#container').masonry({
-      // initialize Masonry
-      var $container = $('#container').masonry();
       // layout Masonry again after all images have loaded
       $container.imagesLoaded( function() {
         $container.masonry();
