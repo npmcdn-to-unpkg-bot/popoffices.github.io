@@ -17,6 +17,10 @@ for (;i < z;i++) {
 }
 z += 5;
 document.getElementById("demo").innerHTML += txt;
+$grid.masonry({
+  itemSelector: '.grid-item',
+  columnWidth: 200
+});
 function loadDoc() {
   var xhttp, xmlDoc, txt, x, y;
   xhttp = new XMLHttpRequest();
@@ -38,7 +42,6 @@ function loadDoc() {
     }
     var $grid = $('.grid');
     $grid.masonry({
-    // options
       itemSelector: '.grid-item',
       columnWidth: 200
     });
