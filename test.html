@@ -3,7 +3,7 @@
 <script src="https://unpkg.com/masonry-layout@4.1/dist/masonry.pkgd.min.js"></script>
 <html>
 <body style="text-align:center;">
-<div class="grid" data-masonry='{ "itemSelector": ".grid-item", "columnWidth": 200 }' id="demo"></div>
+<div class="grid" id="demo"></div>
 <a id="button" onclick="loadDoc()">更多</a>
 <script>
 var z = 5;
@@ -28,7 +28,9 @@ function loadDoc() {
     var msnry = new Masonry( grid, {
       // options...
      itemSelector: '.grid-item',
-     columnWidth: 200
+     gutter: 32,
+     percentPosition: true,
+     isFitWidth: false,
     });
     z += 5;
     document.getElementById("demo").innerHTML += txt;
