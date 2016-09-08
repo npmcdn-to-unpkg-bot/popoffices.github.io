@@ -12,13 +12,13 @@
 <script>
 var z = 5;
 var i = 0;
-window.onload = function() { 
+$(document).ready(function() { 
   loadDoc();
+  $('.grid').masonry({
+    itemSelector: '.grid-item',
+    columnWidth: 200
+  });
 }; 
-$grid.masonry({
-  itemSelector: '.grid-item',
-  columnWidth: 200
-});
 function loadDoc() {
   var xhttp, xmlDoc;
   var txt = "";
@@ -38,8 +38,7 @@ function loadDoc() {
     z += 5;
     document.getElementById("demo").innerHTML += txt;
     }
-    var $grid = $('.grid');
-    $grid.masonry({
+    $('.grid').masonry({
       itemSelector: '.grid-item',
       columnWidth: 200
     });
