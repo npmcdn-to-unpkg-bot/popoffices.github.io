@@ -4,7 +4,7 @@
 <script src="https://npmcdn.com/minigrid@3.0.1/dist/minigrid.min.js"></script>
 <html>
 <body style="width:100%;">
-<div id="container" class="cards" style="position: relative;"></div>
+<div id="container" class="cards" style="width: 100%;max-width: 1040px;margin: 0 auto;text-align: center;"></div>
 <a id="button" onclick="loadDoc()">更多</a>
 <script>
 loadDoc();
@@ -43,7 +43,7 @@ function loadDoc() {
     document.getElementById("button").onclick = "";
     }
     for (;i < z;i++) {
-      txt = txt + "<div class='card' style='width:200px;position: absolute;top: 0;left: 0; '><img style='width:100%;' src='" + x[i].childNodes[0].nodeValue + "'/><h5>" + y[i].childNodes[0].nodeValue + "</h5></div>";
+      txt = txt + "<div class='card' style='width: 200px;'><img style='width:100%;' src='" + x[i].childNodes[0].nodeValue + "'/><h5>" + y[i].childNodes[0].nodeValue + "</h5></div>";
     }
     z += 5;
     document.getElementById("container").innerHTML += txt;
