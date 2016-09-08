@@ -17,7 +17,7 @@ function loadDoc() {
     xmlDoc = this.responseXML;
     txt = "";
     x = xmlDoc.getElementsByTagName("image");
-	y = xmlDoc.getElementsByTagName("p");
+    y = xmlDoc.getElementsByTagName("p");
     for (;i < z;i++) {
       txt = txt + "<div><img src='" + x[i].childNodes[0].nodeValue + "'/><h5>" + y[i].childNodes[0].nodeValue + "</h5></div><br>";
     }
